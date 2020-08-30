@@ -19,49 +19,49 @@
 
                     <h1>Practicing Test (button to start test)</h1>
 
-<div id="quizmain">
-  <div id="quizcontainer">
-    <br>
-    <h4 style="text-align: right;">Question 1 of 25:</h4>
-    <p class="list-group-item list-group-item-action active" id="qtext">I would like to hear from you <b>where are you from and tell me if you work or study.</p>
-        <div style="position:relative;width:100%;">
-        <div id="altcontainer">
-          <label class='radiocontainer' id='label2'> 
-            Listen: &nbsp;&nbsp;
-            <button class="fas fa-volume-up" id="play" name="play" onclick="play();"></button>
-            </label>
-        </div>
-      </div>
+
+                        <div id="quizmain">
+                            <div id="quizcontainer">
+                                <br>
+                                <h4 style="text-align: right;">Question 1 of 25:</h4>
+                                <p class="list-group-item list-group-item-action active" id="qtext">I would like to hear from you <b>where are you from and tell me if you work or study.</b></p>
+                                    <div style="position:relative;width:100%;">
+                                        <div id="altcontainer">
+                                            <label class='radiocontainer' id='label2'> 
+                                                Listen: &nbsp;&nbsp;
+                                                <button class="fas fa-volume-up" id="play" name="play" onclick="play();">
+                                                </button>
+                                            </label>
+                                        </div>
+                                    </div>
     
-    <div class="row">
-        <div class="col-12">
-            <div class="list-group" id="list-tab" role="tablist">
-              <a class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home" style="text-align: center;"><i style="font-size: 7em;" class="fas fa-microphone"></i></a>
-              
-            </div>
-             
-                <div class="col-md-12" id="timer" style="text-align: right;">
-                    
-                </div>
-            
-    
-        </div>
-    </div>
-</div>
-</div>
-</div>
-
-
-
-
-
-
-
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="list-group" id="list-tab" role="tablist">
+                                                <a class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home" style="text-align: center;">
+                                                    <i style="font-size: 7em;" class="fas fa-microphone"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <button id=record>Start</button>
+                                            <button id=stopRecord disabled>Stop</button>
+                                            <audio id=recordedAudio></audio>
+                                        </div>
+                                        <div class="col-md-3">
+                                            
+                                            <div class="col-md-12" id="timer" style="text-align: right;"></div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
 <script>
 
     $('button[name=play]').one('click', function() {
@@ -99,6 +99,9 @@
                 timer2 = minutes + ':' + seconds;
         }, 1000);
 
+
+
+
 }
  
     $(document).ready(function(){
@@ -109,9 +112,64 @@
         });
 
         function alertFunc(){
-            window.location.href = "/home";
+           // window.location.href = "";
         }
     });
+
+    ////////////////////////////////////
+    navigator.mediaDevices.getUserMedia({audio:true})
+      .then(stream => {handlerFunction(stream)})
+
+
+            function handlerFunction(stream) {
+            rec = new MediaRecorder(stream);
+            rec.ondataavailable = e => {
+              audioChunks.push(e.data);
+              if (rec.state == "inactive"){
+                let blob = new Blob(audioChunks,{type:'audio/ogg'});
+                recordedAudio.src = URL.createObjectURL(blob);
+                recordedAudio.controls=true;
+                recordedAudio.autoplay=true;
+                sendData(blob)
+              }
+            }
+          }
+                function sendData(data) {}
+
+       /* record.onclick = e => {
+          console.log('I was clicked')
+          record.disabled = true;
+          record.style.backgroundColor = "blue"
+          stopRecord.disabled=false;
+          audioChunks = [];
+          rec.start();
+        }*/
+
+        setTimeout(event => {
+            record.disabled = true;
+            //record.style.backgroundColor = "blue"
+            stopRecord.disabled=false;
+            audioChunks = [];
+            rec.start();
+
+        },9000);
+
+
+        /*stopRecord.onclick = e => {
+          console.log("I was clicked")
+          record.disabled = false;
+          stop.disabled=true;
+          //record.style.backgroundColor = "red"
+          rec.stop();
+        }
+*/
+        setTimeout(event => {
+            record.disabled = false;
+            stop.disabled=true;
+            //record.style.backgroundColor = "red"
+            rec.stop();
+  
+        }, 39000);
 
     </script>
 @endsection
