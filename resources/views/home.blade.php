@@ -44,8 +44,6 @@
                                             </div>
                                         </div>
                                         <div class="col-md-9">
-                                            <button id=record>Start</button>
-                                            <button id=stopRecord disabled>Stop</button>
                                             <audio id=recordedAudio></audio>
                                         </div>
                                         <div class="col-md-3">
@@ -104,17 +102,7 @@
 
 }
  
-    $(document).ready(function(){
-        $("#play").click(function(){
-
-            setTimeout(alertFunc, 41000);
-
-        });
-
-        function alertFunc(){
-           // window.location.href = "";
-        }
-    });
+    
 
     ////////////////////////////////////
     navigator.mediaDevices.getUserMedia({audio:true})
@@ -145,10 +133,13 @@
           rec.start();
         }*/
 
-        setTimeout(event => {
-            record.disabled = true;
+$(document).ready(function(){
+        $("#play").click(function(){
+
+            setTimeout(event => {
+            //record.disabled = true;
             //record.style.backgroundColor = "blue"
-            stopRecord.disabled=false;
+            //stopRecord.disabled=false;
             audioChunks = [];
             rec.start();
 
@@ -164,12 +155,18 @@
         }
 */
         setTimeout(event => {
-            record.disabled = false;
+            //record.disabled = false;
             stop.disabled=true;
             //record.style.backgroundColor = "red"
             rec.stop();
   
         }, 39000);
 
+
+        });
+
+      
+    });
+        
     </script>
 @endsection
