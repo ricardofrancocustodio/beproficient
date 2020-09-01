@@ -38,9 +38,9 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="list-group" id="list-tab" role="tablist">
-                                                <a class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home" style="text-align: center;">
-                                                    <i style="font-size: 7em;" class="fas fa-microphone"></i>
-                                                </a>
+                                                <span style="text-align: center;">
+                                                    <img src="/assets/images/banner/recording.gif">
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="col-md-9">
@@ -111,13 +111,35 @@
 
             function handlerFunction(stream) {
             rec = new MediaRecorder(stream);
+            
             rec.ondataavailable = e => {
               audioChunks.push(e.data);
               if (rec.state == "inactive"){
                 let blob = new Blob(audioChunks,{type:'audio/ogg'});
-                recordedAudio.src = URL.createObjectURL(blob);
+                const reader = new window.FileReader();
+                reader.readAsDataURL(blob);
+
+                reader.onloadend = () =>{
+
+                    var audioended = reader.result;
+
+                     $.ajax({
+                        type : "POST",  //type of method
+                        url  : "{{ route('tests') }}",  //your page
+                        data : { audioended:audioended },// passing the values
+                        success: function(res){  
+                                                //do what you want here...
+                                }
+                    });
+
+                    
+
+
+                }
+
+                /*recordedAudio.src = URL.createObjectURL(blob);
                 recordedAudio.controls=true;
-                recordedAudio.autoplay=true;
+                recordedAudio.autoplay=true;*/
                 sendData(blob)
               }
             }
@@ -133,7 +155,7 @@
           rec.start();
         }*/
 
-$(document).ready(function(){
+        $(document).ready(function(){
         $("#play").click(function(){
 
             setTimeout(event => {
@@ -158,15 +180,23 @@ $(document).ready(function(){
             //record.disabled = false;
             stop.disabled=true;
             //record.style.backgroundColor = "red"
+           
+            //var audio = new Audio('/dist/mp3/ty.mp3');
+            //audio.play();
             rec.stop();
   
-        }, 39000);
+        }, 41000);
 
 
-        });
+
+        
+
+    });
 
       
     });
+
+
         
     </script>
 @endsection

@@ -20,4 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::any('/tests', 'TestController@index')->name('tests');
 Route::resource('/tests', 'TestController');
