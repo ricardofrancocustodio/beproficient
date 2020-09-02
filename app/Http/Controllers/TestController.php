@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class TestController extends Controller
 {
@@ -13,7 +14,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        // 
+        // quando renderizar a index tem de passar os dados do usuario para recuperar e salvar no banco
        
     }
 
@@ -26,17 +27,10 @@ class TestController extends Controller
     public function tests (Request $request)
     {
 
-         if ($request->ajax())
-        {
-             $input = $request->all();
-            //\Log::info($input);
-           
+        //funfando
+         dd($request->recordedAudio);
 
-
-           
-        }
-
-         dd($request);
+         //pegar dados e salvar no banco
 
 
         

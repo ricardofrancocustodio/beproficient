@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Practicing Test') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -17,13 +17,13 @@
                     {{ __('') }}
 
 
-                    <h1>Practicing Test </h1>
+                    <h1>IELTS Test - B2 </h1>
 
 
                         <div id="quizmain">
                             <form action="tests" method="POST" id="question1">
                                 @csrf
-                                {{ csrf_field() }}
+                               
                                 <div id="quizcontainer">
                                     <br>
                                     <h4 style="text-align: right;">Question 1 of 25:</h4>
@@ -56,7 +56,7 @@
                                             </div>
                                         </div>
                                 </div>
-                                <button type="submit">vai</button>
+                                
                             </form>
                         </div>
                 </div>
@@ -142,11 +142,14 @@
                         data : { audioended:audioended },// passing the values
                         success: function(res){  
 
+                             $("#recordedAudio").attr('value', audioended);
+                             document.getElementById('question1').submit();
+
                             //alert(audioended);
                             //$('recordedAudio').appendChild(audioended);
-                            //document.getElementById('question1').submit();
+                            
                             //$('#recordedAudio').html(audioended);
-                            $("#recordedAudio").attr('value', audioended);
+                           
                            // document.getElementById('question1').submit();
 
                         

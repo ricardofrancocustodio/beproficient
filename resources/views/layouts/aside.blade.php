@@ -4,18 +4,18 @@
     <a href="/./home" class="brand-link">
       <img src="/./dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">NF-e Guard</span>
+      <span class="brand-text font-weight-light">Be Proficient</span>
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar" >
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex"  >
+        <!-- <div class="image">
           <img src="" class="img-circle elevation-2" alt="User Image">
-        </div>
+        </div> -->
         <div class="info">
-          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+          <a href="#" class="d-block">Hi, {{ Auth::user()->name }}!</a>
         </div>
       </div>
 
@@ -136,3 +136,22 @@
     </div>
     <!-- /.sidebar -->
   </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Inline Charts</h1>
+          </div>
+          <div class="col-sm-6">
+            <!-- <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Inline Charts</li>
+            </ol> -->
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>

@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+//Route::any('/tests', 'TestController@index');
 Route::post('/tests', 'TestController@tests')->name('tests');
 //Route::resource('/tests', 'TestController');
 //Route::post('/tests', 'TestController@ajaxRequestPost')->name('tests');
