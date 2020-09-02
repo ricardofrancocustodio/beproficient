@@ -14,9 +14,7 @@ class TestController extends Controller
     public function index()
     {
         // 
-
-        return ('chegou na index');
-
+       
     }
 
     /**
@@ -24,6 +22,29 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function tests (Request $request)
+    {
+
+         if ($request->ajax())
+        {
+             $input = $request->all();
+            //\Log::info($input);
+           
+
+
+           
+        }
+
+         dd($request);
+
+
+        
+    //return response()->json(['success']);
+
+    }
+
+
     public function create()
     {
         //

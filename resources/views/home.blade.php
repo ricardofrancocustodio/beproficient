@@ -17,41 +17,47 @@
                     {{ __('') }}
 
 
-                    <h1>Practicing Test (button to start test)</h1>
+                    <h1>Practicing Test </h1>
 
 
                         <div id="quizmain">
-                            <div id="quizcontainer">
-                                <br>
-                                <h4 style="text-align: right;">Question 1 of 25:</h4>
-                                <p class="list-group-item list-group-item-action active" id="qtext">I would like to hear from you <b>where are you from and tell me if you work or study.</b></p>
-                                    <div style="position:relative;width:100%;">
-                                        <div id="altcontainer">
-                                            <label class='radiocontainer' id='label2'> 
-                                                Listen: &nbsp;&nbsp;
-                                                <button class="fas fa-volume-up" id="play" name="play" onclick="play();">
-                                                </button>
-                                            </label>
-                                        </div>
-                                    </div>
-    
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="list-group" id="list-tab" role="tablist">
-                                                <span style="text-align: center;">
-                                                    <img src="/assets/images/banner/recording.gif">
-                                                </span>
+                            <form action="tests" method="POST" id="question1">
+                                @csrf
+                                {{ csrf_field() }}
+                                <div id="quizcontainer">
+                                    <br>
+                                    <h4 style="text-align: right;">Question 1 of 25:</h4>
+
+                                    <p class="list-group-item list-group-item-action active" id="qtext">I would like to hear from you <b>where are you from and tell me if you work or study.</b></p>
+                                        <div style="position:relative;width:100%;">
+                                            <div id="altcontainer">
+                                                <label class='radiocontainer' id='label2'> 
+                                                    Listen: &nbsp;&nbsp;
+                                                    <button class="fas fa-volume-up" id="play" name="play" onclick="playing();">
+                                                    </button>
+                                                </label>
                                             </div>
                                         </div>
-                                        <div class="col-md-9">
-                                            <audio id=recordedAudio></audio>
+        
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="list-group" id="list-tab" role="tablist">
+                                                    <span style="text-align: center;">
+                                                        <img src="/assets/images/banner/recording.png" width="20%" height="100px">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input id=recordedAudio name="recordedAudio" type="hidden" />
+                                            </div>
+                                            <div class="col-md-3">
+                                                
+                                                <div class="col-md-12" id="timer" style="text-align: right;"></div>
+                                            </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            
-                                            <div class="col-md-12" id="timer" style="text-align: right;"></div>
-                                        </div>
-                                    </div>
-                            </div>
+                                </div>
+                                <button type="submit">vai</button>
+                            </form>
                         </div>
                 </div>
             </div>
@@ -67,11 +73,11 @@
   
 });
    
-    function play() {
+    function playing() {
         var audio = new Audio('/dist/mp3/1question.mp3');
         audio.play();
 
-        var timer2 = "0:40";
+        var timer2 = "0:12";
         var interval = setInterval(function() {
 
         var timer = timer2.split(':');
@@ -123,12 +129,27 @@
 
                     var audioended = reader.result;
 
-                     $.ajax({
+
+                   $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+
+                    $.ajax({
                         type : "POST",  //type of method
-                        url  : "{{ route('tests') }}",  //your page
+                        url  : "{{ url('/tests') }}",  //your page
                         data : { audioended:audioended },// passing the values
                         success: function(res){  
-                                                //do what you want here...
+
+                            //alert(audioended);
+                            //$('recordedAudio').appendChild(audioended);
+                            //document.getElementById('question1').submit();
+                            //$('#recordedAudio').html(audioended);
+                            $("#recordedAudio").attr('value', audioended);
+                           // document.getElementById('question1').submit();
+
+                        
                                 }
                     });
 
@@ -185,7 +206,7 @@
             //audio.play();
             rec.stop();
   
-        }, 41000);
+        }, 12000);
 
 
 
