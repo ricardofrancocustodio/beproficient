@@ -15,7 +15,9 @@ class CreateTestsTable extends Migration
     {
         Schema::create('tests', function (Blueprint $table) {
             
-            $table->bigIncrements('id_test');
+            $table->bigIncrements('created_by_user_id')->nullable();
+            $table->foreign('created_by_user_id')->references('id')->on('users');
+            $table->string('id_test');
             $table->string('id_testtype');
             $table->string('duration');
             $table->timestamps();
@@ -30,5 +32,10 @@ class CreateTestsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('tests');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'created_by_user_id');
     }
 }

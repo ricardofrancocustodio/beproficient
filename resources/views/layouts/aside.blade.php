@@ -49,7 +49,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/./ordemdeservico" class="nav-link ">
+                <a href="/./testlist" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Test List</p>
                 </a>
@@ -144,7 +144,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Inline Charts</h1>
+            <h1></h1>
           </div>
           <div class="col-sm-6">
             <!-- <ol class="breadcrumb float-sm-right">

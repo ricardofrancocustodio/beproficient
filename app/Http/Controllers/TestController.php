@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\DB;
+
 
 class TestController extends Controller
 {
@@ -15,7 +17,13 @@ class TestController extends Controller
     public function index()
     {
         // quando renderizar a index tem de passar os dados do usuario para recuperar e salvar no banco
-       
+
+        $test = DB::table('users')->pluck('id', 'name');
+        
+        $session_id = session()->getId();
+
+        //return view('tests.index', ['users' => $test]);
+        return view('tests.index', compact('test', 'session_id'));
     }
 
     /**
@@ -28,13 +36,50 @@ class TestController extends Controller
     {
 
         //funfando
-         dd($request->recordedAudio);
+         //dd($request->recordedAudio);
 
          //pegar dados e salvar no banco
 
 
         
     //return response()->json(['success']);
+
+    }
+
+    public function testToefl (Request $request)
+    {
+
+        //funfando
+         //dd($request->recordedAudio);
+
+         //pegar dados e salvar no banco
+
+
+        
+    //return response()->json(['success']);
+
+    }
+
+     public function instructions (Request $request)
+    {
+        
+        $instructions = $request->get('id_testtype');
+
+        //dd($instructions);
+
+        return view('tests.instructions',  ['instructions' => $instructions]);
+
+
+    }
+
+    public function testlist()
+    {
+        //
+
+        $test = DB::table('users')->pluck('id', 'name');
+
+        return view('tests.testlist', compact('test'));
+        
 
     }
 
@@ -52,7 +97,13 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // primeiro salva as requisiçoes no banco 
+         dd($request);
+
+         // segundo busca as linhas de questoes no bd e faz um shuffle (random)
+         //... sem incluir as que ja foram escolhidas anteriormente para evitar repetiçoes
+
+         //retona para a mesma view com as informaçoes sobre a nova questao.
     }
 
     /**
