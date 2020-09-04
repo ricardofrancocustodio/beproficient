@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\User;
 
 class CreateTestsTable extends Migration
 {
@@ -14,12 +15,8 @@ class CreateTestsTable extends Migration
     public function up()
     {
         Schema::create('tests', function (Blueprint $table) {
-            
-            $table->bigIncrements('created_by_user_id')->nullable();
-            $table->foreign('created_by_user_id')->references('id')->on('users');
-            $table->string('id_test');
+            $table->id('id_test');
             $table->string('id_testtype');
-            $table->string('duration');
             $table->timestamps();
         });
     }

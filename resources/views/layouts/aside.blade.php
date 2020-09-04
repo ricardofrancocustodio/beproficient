@@ -43,15 +43,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/./orcamento" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Start Test</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="/./testlist" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Test List</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/./englishproficiencytest" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Choose Test</p>
                 </a>
               </li>
               
@@ -119,13 +119,14 @@
          
 
           <li class="nav-item">
-              <a href="{{ route('logout') }}" id="logout-form" class="nav-link" onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();">
+
+              
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" >
+                  @csrf
+                  <a href="{{ route('logout') }}" id="logout-form" class="nav-link" onclick="logout();">
                 <i class="nav-icon fas fa-sign-out-alt"></i>        
                   <p>Sair do sistema </p>
               </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;" >
-                  @csrf
                 </form>
                   
  
@@ -155,3 +156,12 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
+<script type="text/javascript">
+  function logout()
+  {
+    event.preventDefault();
+  document.getElementById('logout-form').submit();
+
+  }
+  
+</script>

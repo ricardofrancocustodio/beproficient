@@ -1,8 +1,10 @@
 <?php
 
+
 namespace App\Observers;
 
 use App\Test;
+use Illuminate\Support\Facades\Auth;
 
 class TestObserver
 {
@@ -14,13 +16,15 @@ class TestObserver
      */
     public function created(Test $test)
     {
-        //
-        if (auth()->check())
+        
+        /*if (Auth::check())
         {
-            $test->created_by_user_id = auth()->id();
+            $test->created_by_user_id = Auth::id();
+            //dd($test->created_by_user_id);
             $test->save();
 
         }
+            */
         
     }
 

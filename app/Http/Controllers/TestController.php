@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Test;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 
 class TestController extends Controller
@@ -46,20 +48,7 @@ class TestController extends Controller
 
     }
 
-    public function testToefl (Request $request)
-    {
-
-        //funfando
-         //dd($request->recordedAudio);
-
-         //pegar dados e salvar no banco
-
-
-        
-    //return response()->json(['success']);
-
-    }
-
+    
      public function instructions (Request $request)
     {
         
@@ -83,6 +72,17 @@ class TestController extends Controller
 
     }
 
+    public function englishproficiencytest()
+    {
+        //
+
+        $test = DB::table('users')->pluck('id', 'name');
+
+        return view('tests.englishproficiencytest', compact('test'));
+        
+
+    }
+
 
     public function create()
     {
@@ -97,13 +97,23 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        // primeiro salva as requisiçoes no banco 
-         dd($request);
+        //dd($request);
 
+        // primeiro salva as requisiçoes no banco 
+        $test                       = new Test();
+        $test->id_testtype          = $request->id_testtype;
+        $test->created_by_user_id   = Auth::id();
+
+        //dd($test);
+        $test->save();
+
+
+         
          // segundo busca as linhas de questoes no bd e faz um shuffle (random)
          //... sem incluir as que ja foram escolhidas anteriormente para evitar repetiçoes
 
          //retona para a mesma view com as informaçoes sobre a nova questao.
+         return view('tests.index');
     }
 
     /**

@@ -5,7 +5,7 @@
 
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>NF-e Guard</title>
+  <title>Be Proficient :: Proficiency English Test Simulator</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
