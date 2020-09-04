@@ -41,13 +41,14 @@
                           </tr>
                       </thead>
                       <tbody>
+                        @foreach ($test as $linha)
                           <tr>
                               <td>
                                   #
                               </td>
                               <td>
                                   <a>
-                                      TOEFL 
+                                      {{ $linha->name }}
                                   </a>
                                   <br/>
                                   <small>
@@ -85,7 +86,7 @@
                                   </a>
                               </td>
                           </tr>
-                         
+                         @endforeach
                       </tbody>
                   </table>
                 
@@ -96,6 +97,9 @@
 
                 </div>
                 <!-- card-body -->
+                <nav class="pagination" style="padding-left: 20px;">
+                {{ $test->links() }}
+                </nav>
             </div>
             <!-- card-->
         </div>

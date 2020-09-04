@@ -7,6 +7,9 @@ use App\User;
 use App\Test;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Model;
 
 
 class TestController extends Controller
@@ -65,7 +68,10 @@ class TestController extends Controller
     {
         //
 
-        $test = DB::table('users')->pluck('id', 'name');
+        $test = DB::table('tests')
+            ->join('testtypes', 'tests.id_testtype', '=', 'testtypes.id_testtype')
+            //->select('testtypes.name')
+            ->paginate(5);
 
         return view('tests.testlist', compact('test'));
         

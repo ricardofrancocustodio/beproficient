@@ -14,7 +14,7 @@ class CreateTesttypesTable extends Migration
     public function up()
     {
         Schema::create('testtypes', function (Blueprint $table) {
-            $table->bigIncrements('id_testype');
+            $table->bigIncrements('id_testtype');
             $table->string('name');
             $table->timestamps();
         });
