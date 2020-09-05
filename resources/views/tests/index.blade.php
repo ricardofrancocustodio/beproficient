@@ -21,14 +21,16 @@
 
 
                         <div id="quizmain">
-                            <form action="{{ action('TestController@store') }}" method="POST" id="question1">
+                            <!-- <form action="{{ action('TestController@store') }}" method="POST" id="question1"> -->
+                            <form action="{{ action('TestController@savequestions') }}" method="POST" id="question1">
                                 @csrf
                                
                                 <div id="quizcontainer">
                                     <br>
                                     <h4 style="text-align: right;">Question 1 of 25:</h4><!-- BUSCAR NO BANCO A QTD E DEPOIS PEDIR PARA O USUARIO SETAR A QUANTIDADE-->
-
-                                    <p class="list-group-item list-group-item-action active" id="qtext">I would like to hear from you <b>where are you from and tell me if you work or study.</b></p>
+                                    @foreach ($test as $linha)
+                                    <p class="list-group-item list-group-item-action active" id="qtext" style="font-weight: bold;">{{ $linha->text }}</b></p>
+                                    @endforeach
                                         <div style="position:relative;width:100%;">
                                             <div id="altcontainer">
                                                 <label class='radiocontainer' id='label2'> 
@@ -48,9 +50,12 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
-                                                <input id=recordedAudio name="recordedAudio" type="hidden" />
-                                                <input name="{{ session('id')}}" type="hidden" />
+                                                <!-- <input id=recordedAudio name="recordedAudio" type="text" /> -->
+                                                
+                                                <input id="recordedAudio" name="recordedAudio"  type="hidden" />
+                                                <input name="{{ $test1 }}" type="hidden" />
                                             </div>
+                                            	
                                             <div class="col-md-3">
                                                 
                                                 <div class="col-md-12" id="timer" style="text-align: right;"></div>
@@ -129,8 +134,11 @@
                 reader.onloadend = () =>{
 
                     var audioended = reader.result;
+                     $("#recordedAudio").attr('value', audioended);
+                     document.getElementById('question1').submit();
 
-
+                    //console.log(audioended);
+/*
                    $.ajaxSetup({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -139,12 +147,13 @@
 
                     $.ajax({
                         type : "POST",  //type of method
-                        url  : "{{ url('/tests') }}",  //your page
+                        //url  : "{{ url('/tests') }}",  //your page
+                        url: "{{ url('/store') }}",
                         data : { audioended:audioended },// passing the values
                         success: function(res){  
 
-                             $("#recordedAudio").attr('value', audioended);
-                             document.getElementById('question1').submit();
+                           
+                            // document.getElementById('question1').submit();
 
                             //alert(audioended);
                             //$('recordedAudio').appendChild(audioended);
@@ -156,7 +165,7 @@
                         
                                 }
                     });
-
+*/
                     
 
 

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Test extends Model
 {
-	use SoftDeletes;
+	//use SoftDeletes;
 
 	protected $dates = [
 		

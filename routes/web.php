@@ -21,8 +21,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::any('/tests', 'TestController@index');
-//Route::post('/tests', 'TestController@tests')->name('tests');
-Route::get('/tests', 'TestController@index')->name('tests');
+Route::post('/store', 'TestController@store')->name('store');
+Route::post('/savequestions', 'TestController@savequestions')->name('savequestions');
 Route::get('/englishproficiencytest', 'TestController@englishproficiencytest')->name('englishproficiencytest');
 Route::get('/instructions', 'TestController@instructions')->name('instructions');
 Route::any('/testtoefl', 'TestController@testToefl')->name('testtoefl');

@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Test;
+use App\Questionhasanswer;
+use App\Question;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Collection;
 
 class TestController extends Controller
 {
@@ -23,12 +25,19 @@ class TestController extends Controller
     {
         // quando renderizar a index tem de passar os dados do usuario para recuperar e salvar no banco
 
-        $test = DB::table('users')->pluck('id', 'name');
+        $test           = DB::table('questions')->where('id_question', 1)->get();
+        //$test1           = DB::table('tests')->where('id_test', 1)->get();
+        //dd($test);
+        $test1 = DB::getPDO()->lastInsertId();
+       // 
+        //$test = DB::table('users')->pluck('id', 'name');
         
-        $session_id = session()->getId();
+        //$session_id = session()->getId();
 
         //return view('tests.index', ['users' => $test]);
-        return view('tests.index', compact('test', 'session_id'));
+        //return view('tests.index', compact('test', 'session_id'));
+        return view('tests.index', compact('test', 'test1'));
+
     }
 
     /**
@@ -71,6 +80,7 @@ class TestController extends Controller
         $test = DB::table('tests')
             ->join('testtypes', 'tests.id_testtype', '=', 'testtypes.id_testtype')
             //->select('testtypes.name')
+            ->where('tests.created_by_user_id', Auth::id())
             ->paginate(5);
 
         return view('tests.testlist', compact('test'));
@@ -104,22 +114,36 @@ class TestController extends Controller
     public function store(Request $request)
     {
         //dd($request);
-
+        //$question                   = new Question();
         // primeiro salva as requisiçoes no banco 
         $test                       = new Test();
         $test->id_testtype          = $request->id_testtype;
         $test->created_by_user_id   = Auth::id();
-
-        //dd($test);
         $test->save();
 
+       
 
-         
          // segundo busca as linhas de questoes no bd e faz um shuffle (random)
          //... sem incluir as que ja foram escolhidas anteriormente para evitar repetiçoes
 
          //retona para a mesma view com as informaçoes sobre a nova questao.
-         return view('tests.index');
+         return redirect('tests');
+    }
+
+    public function savequestions(Request $request)
+    {
+        
+        $test = Test::latest()->first();
+
+        $questionhasanswer                      = new Questionhasanswer();
+        $questionhasanswer->id_test             = $test->id_test;
+        $questionhasanswer->id_question         = 1;//$question->id_question;
+        $questionhasanswer->answer              = $request->recordedAudio;
+        $questionhasanswer->save();
+
+        return redirect ('tests');
+
+
     }
 
     /**

@@ -57,67 +57,7 @@
               
             </ul>
           </li>
-          <li class="nav-item has-treeview menu-close">
-            <a href="#" class="nav-link"><!-- nav-link active -->
-              <i class="nav-icon fas fa-file-invoice-dollar"></i>
-              <p>
-                Notas Fiscais
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/./admin/usuario" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Emitir Notas</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/./admin/permission" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Gerenciar Notas</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/./admin/role" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Upload de Notas</p>
-                </a>
-              </li>
-            </ul>
-          </li>
           
-          <li class="nav-item has-treeview menu-close">
-            <a href="#" class="nav-link"><!-- nav-link active -->
-              <i class="nav-icon fas fa-user"></i>
-              <p>
-                Usuários
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/./admin/usuario" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Gerenciar Usuários</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/./admin/permission" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Gerenciar Permissões</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/./admin/role" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Gerenciar Perfil</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-         
-
           <li class="nav-item">
 
               
