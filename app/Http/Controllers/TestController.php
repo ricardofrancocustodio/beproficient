@@ -25,10 +25,11 @@ class TestController extends Controller
     {
         // quando renderizar a index tem de passar os dados do usuario para recuperar e salvar no banco
 
-        $test           = DB::table('questions')->where('id_question', 1)->get();
+       // $question           = DB::table('questions')->where('id_question', 1)->get();
+        $question           = Question::select('questions.id_question', 'questions.soundquestion', 'questions.img', 'questions.text', 'questions.vid', 'questions.duration')->find(2);
         //$test1           = DB::table('tests')->where('id_test', 1)->get();
         //dd($test);
-        $test1 = DB::getPDO()->lastInsertId();
+        $question1 = DB::getPDO()->lastInsertId();
        // 
         //$test = DB::table('users')->pluck('id', 'name');
         
@@ -36,7 +37,7 @@ class TestController extends Controller
 
         //return view('tests.index', ['users' => $test]);
         //return view('tests.index', compact('test', 'session_id'));
-        return view('tests.index', compact('test', 'test1'));
+        return view('tests.index', compact('question', 'question1'));
 
     }
 

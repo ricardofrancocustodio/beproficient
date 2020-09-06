@@ -28,19 +28,22 @@
                                 <div id="quizcontainer">
                                     <br>
                                     <h4 style="text-align: right;">Question 1 of 25:</h4><!-- BUSCAR NO BANCO A QTD E DEPOIS PEDIR PARA O USUARIO SETAR A QUANTIDADE-->
-                                    @foreach ($test as $linha)
-                                    <p class="list-group-item list-group-item-action active" id="qtext" style="font-weight: bold;">{{ $linha->text }}</b></p>
-                                    @endforeach
+                                    
+                                    <p class="list-group-item list-group-item-action active" id="qtext" style="font-weight: bold;">{{ $question->text }}</b></p>
+                                   
                                         <div style="position:relative;width:100%;">
                                             <div id="altcontainer">
                                                 <label class='radiocontainer' id='label2'> 
-                                                    Listen: &nbsp;&nbsp;
-                                                    <button class="fas fa-volume-up" id="play" name="play" onclick="playing();">
-                                                    </button>
+                                                  &nbsp;&nbsp;
+                                                    <!-- <button class="fas fa-volume-up" id="play" name="play" onclick="playing();">
+                                                    </button> -->
+                                                     
+                                                     	<audio controls src="{{ $question->soundquestion }}" controlsList="nodownload"/>
+                                                    
                                                 </label>
                                             </div>
                                         </div>
-        
+         								
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="list-group" id="list-tab" role="tablist">
@@ -53,7 +56,7 @@
                                                 <!-- <input id=recordedAudio name="recordedAudio" type="text" /> -->
                                                 
                                                 <input id="recordedAudio" name="recordedAudio"  type="hidden" />
-                                                <input name="{{ $test1 }}" type="hidden" />
+                                                <input name="{{ $question1 }}" type="hidden" />
                                             </div>
                                             	
                                             <div class="col-md-3">
@@ -80,10 +83,12 @@
 });
    
     function playing() {
-        var audio = new Audio('/dist/mp3/1question.mp3');
-        audio.play();
+        //var audio = new Audio('/dist/mp3/question2_Agriculture_Iron_and_the_Bantu_Peoples.mp3');
+        //var audio = new Audio('');
+        //audio.play();
 
-        var timer2 = "0:12";
+        var timer2 = "{{ $question->duration }}";
+        //var timer2 = "";
         var interval = setInterval(function() {
 
         var timer = timer2.split(':');
@@ -219,7 +224,8 @@
             //audio.play();
             rec.stop();
   
-        }, 12000);
+        }, '{{$question->duration}}');
+        // }, '9000');
 
 
 

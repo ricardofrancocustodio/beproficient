@@ -24,5 +24,7 @@ class Test extends Model
 		'created_by_user_id',
 		
 	];
+
+	
     //
 }
