@@ -27,7 +27,7 @@
                                
                                 <div id="quizcontainer">
                                     <br>
-                                    <h4 style="text-align: right;">Question 1 of 25:</h4><!-- BUSCAR NO BANCO A QTD E DEPOIS PEDIR PARA O USUARIO SETAR A QUANTIDADE-->
+                                    <h4 style="text-align: right;">Questionn 1 of 25:</h4><!-- BUSCAR NO BANCO A QTD E DEPOIS PEDIR PARA O USUARIO SETAR A QUANTIDADE-->
                                     
                                     <p class="list-group-item list-group-item-action active" id="qtext" style="font-weight: bold;">{{ $question->text }}</b></p>
                                    
@@ -38,7 +38,7 @@
                                                     <!-- <button class="fas fa-volume-up" id="play" name="play" onclick="playing();">
                                                     </button> -->
                                                      
-                                                     	<audio controls src="{{ $question->soundquestion }}" controlsList="nodownload"/>
+                                                     	<audio controls src="{{ $question->soundquestion }}" controlsList="nodownload" id="playing" />
                                                     
                                                 </label>
                                             </div>
@@ -77,47 +77,29 @@
 
 <script>
 
-    $('button[name=play]').one('click', function() {
-     $(this).attr('disabled','disabled');
-  
-});
-   
-    function playing() {
-        //var audio = new Audio('/dist/mp3/question2_Agriculture_Iron_and_the_Bantu_Peoples.mp3');
-        //var audio = new Audio('');
-        //audio.play();
+   var play = document.getElementById("playing");
 
-        var timer2 = "{{ $question->duration }}";
-        //var timer2 = "";
-        var interval = setInterval(function() {
-
-        var timer = timer2.split(':');
-        
-        //by parsing integer, I avoid all extra string processing
-        var minutes = parseInt(timer[0], 10);
-        var seconds = parseInt(timer[1], 10);
-      
-        --seconds;
-        
-        minutes = (seconds < 0) ? --minutes : minutes;
-        seconds = (seconds < 0) ? 59 : seconds;
-        seconds = (seconds < 10) ? '0' + seconds : seconds;
-  
-        //minutes = (minutes < 10) ?  minutes : minutes;
-  
-        $('#timer').html(minutes + ':' + seconds);
-        
-            if (minutes < 0) clearInterval(interval);
-            //check if both minutes and seconds are 0
-  
-            if ((seconds <= 0) && (minutes <= 0)) clearInterval(interval);
-                timer2 = minutes + ':' + seconds;
-        }, 1000);
-
+   play.onplay = function(count) {
+    
+ 
+var timeleft = 10;
+var downloadTimer = setInterval(function(){
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+    document.getElementById("timer").innerHTML = "Finished";
+  } else {
+    document.getElementById("timer").innerHTML = timeleft + " seconds remaining";
+  }
+  timeleft -= 1;
+}, 1000);
 
 
 
 }
+
+   
+
+//
  
     
 
@@ -224,7 +206,7 @@
             //audio.play();
             rec.stop();
   
-        }, '{{$question->duration}}');
+        }, 41000);
         // }, '9000');
 
 
