@@ -26,7 +26,7 @@ class TestController extends Controller
         // quando renderizar a index tem de passar os dados do usuario para recuperar e salvar no banco
 
        // $question           = DB::table('questions')->where('id_question', 1)->get();
-        $question           = Question::select('questions.id_question', 'questions.soundquestion', 'questions.img', 'questions.text', 'questions.vid', 'questions.duration')->find(1);
+        $question           = Question::select('questions.id_question', 'questions.soundquestion', 'questions.img', 'questions.text', 'questions.vid', 'questions.duration')->find(3);
         //$test1           = DB::table('tests')->where('id_test', 1)->get();
         //dd($test);
         $question1 = DB::getPDO()->lastInsertId();

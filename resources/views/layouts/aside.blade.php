@@ -65,7 +65,7 @@
                   @csrf
                   <a href="{{ route('logout') }}" id="logout-form" class="nav-link" onclick="logout();">
                 <i class="nav-icon fas fa-sign-out-alt"></i>        
-                  <p>Sair do sistema </p>
+                  <p>Logout</p>
               </a>
                 </form>
                   

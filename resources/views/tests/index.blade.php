@@ -27,18 +27,20 @@
                                
                                 <div id="quizcontainer">
                                     <br>
-                                    <h4 style="text-align: right;">Questionn 1 of 25:</h4><!-- BUSCAR NO BANCO A QTD E DEPOIS PEDIR PARA O USUARIO SETAR A QUANTIDADE-->
+                                    <h4 style="text-align: right;">Question 1 of 25:</h4><!-- BUSCAR NO BANCO A QTD E DEPOIS PEDIR PARA O USUARIO SETAR A QUANTIDADE-->
                                     
                                     <p class="list-group-item list-group-item-action active" id="qtext" style="font-weight: bold;">{{ $question->text }}</b></p>
                                    
-                                        <div style="position:relative;width:100%;">
+                                        <div style="position:relative;width:100%; text-align: center; ">
                                             <div id="altcontainer">
                                                 <label class='radiocontainer' id='label2'> 
                                                   &nbsp;&nbsp;
+                                                  <img src="/assets/images/banner/recording.png" width="20%" height="100px">
+                                                  <p id="timer" style="text-align: center; font-size: 100px;"></p>
                                                     <!-- <button class="fas fa-volume-up" id="play" name="play" onclick="playing();">
                                                     </button> -->
                                                      
-                                                     	<audio controls src="{{ $question->soundquestion }}" controlsList="nodownload" id="playing" />
+                                                     	<audio autoplay src="{{ $question->soundquestion }}" controlsList="nodownload" id="playing"/>
                                                     
                                                 </label>
                                             </div>
@@ -48,8 +50,9 @@
                                             <div class="col-12">
                                                 <div class="list-group" id="list-tab" role="tablist">
                                                     <span style="text-align: center;">
-                                                        <img src="/assets/images/banner/recording.png" width="20%" height="100px">
-                                                    </span>
+                                                    	<p id="timer" style="text-align: right;"></p>
+                                                        <!-- 
+                                                    </span> -->
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
@@ -61,7 +64,7 @@
                                             	
                                             <div class="col-md-3">
                                                 
-                                                <div class="col-md-12" id="timer" style="text-align: right;"></div>
+                                                
                                             </div>
                                         </div>
                                 </div>
@@ -80,26 +83,36 @@
    var play = document.getElementById("playing");
 
    play.onplay = function(count) {
-    
- $('button[name=play]').one('click', function() {
-     $(this).attr('disabled','disabled');
-  
-});
-	//var timeleft = 10;
-	var timeleft = "{{ $question->duration }}";
+   	
+   	//var audioduration = Math.ceil(play.duration)
+   	//var answerduration = parseInt();
+   
+ 	var timeleft = "{{ $question->duration }}";
+ 	play.play();
+
+
+	play.addEventListener('ended', function(ev){
+	
+	var beep = new Audio('/assets/audio/beep.mp3');
+	beep.play();
+
 	var downloadTimer = setInterval(function(){
 	  if(timeleft <= 0){
 	    clearInterval(downloadTimer);
 	    document.getElementById("timer").innerHTML = "Finished";
 	  } else {
-	    document.getElementById("timer").innerHTML = timeleft + " seconds remaining";
+	    document.getElementById("timer").innerHTML = timeleft + " ";
 	  }
 	  timeleft -= 1;
 	}, 1000);
 
 
+     // ask user about re-playing the same song & other operations
+});
+
 
 }
+
 
    
 
@@ -210,7 +223,7 @@
             //audio.play();
             rec.stop();
   
-        }, 41000);
+        }, timeleft);
         // }, '9000');
 
 
