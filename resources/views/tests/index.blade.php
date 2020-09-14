@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Practicing Test') }}</div>
+                <div class="card-header" style="text-align: right;">{{ __('Practicing Test') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -17,7 +17,7 @@
                     {{ __('') }}
 
 
-                    <h1>IELTS Test - B2 </h1>
+                    <!-- <h1>IELTS Test - B2 </h1> -->
 
 
                         <div id="quizmain">
@@ -27,16 +27,16 @@
                                
                                 <div id="quizcontainer">
                                     <br>
-                                    <h4 style="text-align: right;">Question 1 of 25:</h4><!-- BUSCAR NO BANCO A QTD E DEPOIS PEDIR PARA O USUARIO SETAR A QUANTIDADE-->
+                                   <!--  <h4 style="text-align: right;">Question 1 of 25:</h4> --><!-- BUSCAR NO BANCO A QTD E DEPOIS PEDIR PARA O USUARIO SETAR A QUANTIDADE-->
                                     
-                                    <p class="list-group-item list-group-item-action active" id="qtext" style="font-weight: bold;">{{ $question->text }}</b></p>
+                                    <p class="list-group-item list-group-item-action active" id="qtext" style="font-weight: bold; font-family: times new roman; font-size: 20px;">{{ $question->text }}</b></p>
                                    
                                         <div style="position:relative;width:100%; text-align: center; ">
                                             <div id="altcontainer">
                                                 <label class='radiocontainer' id='label2'> 
                                                   &nbsp;&nbsp;
-                                                  <img src="/assets/images/banner/recording.png" width="20%" height="100px">
-                                                  <p id="timer" style="text-align: center; font-size: 100px;"></p>
+                                                  <img src="/assets/images/banner/recording.png" width="20%" height="100px" class="record_img">
+                                                  <p id="timer" style="text-align: center; font-size: 50px; color: red;"></p>
                                                     <!-- <button class="fas fa-volume-up" id="play" name="play" onclick="playing();">
                                                     </button> -->
                                                      
@@ -83,19 +83,23 @@
    var play = document.getElementById("playing");
 
    play.onplay = function(count) {
-   	
-   	//var audioduration = Math.ceil(play.duration)
-   	//var answerduration = parseInt();
    
- 	var timeleft = "{{ $question->duration }}";
  	play.play();
 
+ 	}
 
 	play.addEventListener('ended', function(ev){
 	
+	//play beep sound
 	var beep = new Audio('/assets/audio/beep.mp3');
 	beep.play();
 
+	//change the image on the screen
+	document.getElementsByClassName("record_img")[0].src = "/assets/images/banner/beproficient_record_button.png";
+ 
+ 	var timeleft = "{{ $question->duration }}";
+
+ 	//countdown timer activation
 	var downloadTimer = setInterval(function(){
 	  if(timeleft <= 0){
 	    clearInterval(downloadTimer);
@@ -107,136 +111,54 @@
 	}, 1000);
 
 
-     // ask user about re-playing the same song & other operations
+	//start recording
+	$(function(){
+
+		let rec;
+
+	 navigator
+      .mediaDevices
+      .getUserMedia({audio:true})
+      .then(stream => { 
+
+       rec = new MediaRecorder(stream);
+
+       let audioChunks = [];
+
+        rec.ondataavailable = e => {
+              audioChunks.push(e.data);
+
+
+         }
+
+         rec.onstop = () => {
+
+         	let blob = new Blob(audioChunks,{type:'audio/ogg'});
+         	let reader = new window.FileReader();
+         	reader.readAsDataURL(blob);
+
+         	reader.onloadend = () =>{
+
+         		console.log(reader.result);
+         
+         }//reader.onloadend
+
+     } //rec.onstop
+
+     rec.start();
+     setInterval(function(){ rec.stop() }, 30000);
+    
+
+}, err => {
+
+	alert('permitir o audio');
 });
 
 
-}
+});
 
-
+});
    
-
-//
- 
-    
-
-    ////////////////////////////////////
-    navigator.mediaDevices.getUserMedia({audio:true})
-      .then(stream => {handlerFunction(stream)})
-
-
-            function handlerFunction(stream) {
-            rec = new MediaRecorder(stream);
-            
-            rec.ondataavailable = e => {
-              audioChunks.push(e.data);
-              if (rec.state == "inactive"){
-                let blob = new Blob(audioChunks,{type:'audio/ogg'});
-                const reader = new window.FileReader();
-                reader.readAsDataURL(blob);
-
-                reader.onloadend = () =>{
-
-                    var audioended = reader.result;
-                     $("#recordedAudio").attr('value', audioended);
-                     document.getElementById('question1').submit();
-
-                    //console.log(audioended);
-/*
-                   $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
-
-                    $.ajax({
-                        type : "POST",  //type of method
-                        //url  : "{{ url('/tests') }}",  //your page
-                        url: "{{ url('/store') }}",
-                        data : { audioended:audioended },// passing the values
-                        success: function(res){  
-
-                           
-                            // document.getElementById('question1').submit();
-
-                            //alert(audioended);
-                            //$('recordedAudio').appendChild(audioended);
-                            
-                            //$('#recordedAudio').html(audioended);
-                           
-                           // document.getElementById('question1').submit();
-
-                        
-                                }
-                    });
-*/
-                    
-
-
-                }
-
-                /*recordedAudio.src = URL.createObjectURL(blob);
-                recordedAudio.controls=true;
-                recordedAudio.autoplay=true;*/
-                sendData(blob)
-              }
-            }
-          }
-                function sendData(data) {}
-
-       /* record.onclick = e => {
-          console.log('I was clicked')
-          record.disabled = true;
-          record.style.backgroundColor = "blue"
-          stopRecord.disabled=false;
-          audioChunks = [];
-          rec.start();
-        }*/
-
-        $(document).ready(function(){
-        $("#play").click(function(){
-
-            setTimeout(event => {
-            //record.disabled = true;
-            //record.style.backgroundColor = "blue"
-            //stopRecord.disabled=false;
-            audioChunks = [];
-            rec.start();
-
-        },9000);
-
-
-        /*stopRecord.onclick = e => {
-          console.log("I was clicked")
-          record.disabled = false;
-          stop.disabled=true;
-          //record.style.backgroundColor = "red"
-          rec.stop();
-        }
-*/
-        setTimeout(event => {
-            //record.disabled = false;
-            stop.disabled=true;
-            //record.style.backgroundColor = "red"
-           
-            //var audio = new Audio('/dist/mp3/ty.mp3');
-            //audio.play();
-            rec.stop();
-  
-        }, timeleft);
-        // }, '9000');
-
-
-
-        
-
-    });
-
-      
-    });
-
-
-        
     </script>
 @endsection
 
