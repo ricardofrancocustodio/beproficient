@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Arr;
 
 class TestController extends Controller
 {
@@ -23,17 +24,27 @@ class TestController extends Controller
      */
     public function index()
     {
-        // quando renderizar a index tem de passar os dados do usuario para recuperar e salvar no banco
+        die();
+
+        $array_question = Question::pluck('id_question')->toArray();
+
+        $shuffle        = Arr::shuffle($array_question);
+
+
+        foreach ($shuffle as $key => $value) 
+        {
+            # code...
+
+             $question           = Question::select('questions.id_question', 'questions.soundquestion', 'questions.img', 'questions.text', 'questions.vid', 'questions.duration')->find($key);
+
+        }
 
        // $question           = DB::table('questions')->where('id_question', 1)->get();
-        $question           = Question::select('questions.id_question', 'questions.soundquestion', 'questions.img', 'questions.text', 'questions.vid', 'questions.duration')->find(3);
+        $question           = Question::select('questions.id_question', 'questions.soundquestion', 'questions.img', 'questions.text', 'questions.vid', 'questions.duration')->find($shuffle[0]);
         //$test1           = DB::table('tests')->where('id_test', 1)->get();
-        //dd($test);
-        $question1 = DB::getPDO()->lastInsertId();
-       // 
-        //$test = DB::table('users')->pluck('id', 'name');
         
-        //$session_id = session()->getId();
+        $question1 = DB::getPDO()->lastInsertId();
+      //die();
 
         //return view('tests.index', ['users' => $test]);
         //return view('tests.index', compact('test', 'session_id'));
@@ -133,8 +144,8 @@ class TestController extends Controller
 
     public function savequestions(Request $request)
     {
-        dd($request);
-        
+        //dd($request);
+
         $test = Test::latest()->first();
 
         $questionhasanswer                      = new Questionhasanswer();
