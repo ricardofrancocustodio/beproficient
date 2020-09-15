@@ -133,12 +133,13 @@ class TestController extends Controller
 
     public function savequestions(Request $request)
     {
+        dd($request);
         
         $test = Test::latest()->first();
 
         $questionhasanswer                      = new Questionhasanswer();
         $questionhasanswer->id_test             = $test->id_test;
-        $questionhasanswer->id_question         = 1;//$question->id_question;
+        $questionhasanswer->id_question         = 1;//$question->id_question; vem da index
         $questionhasanswer->answer              = $request->recordedAudio;
         $questionhasanswer->save();
 

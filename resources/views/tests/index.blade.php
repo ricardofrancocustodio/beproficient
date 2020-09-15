@@ -56,9 +56,8 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
-                                                <!-- <input id=recordedAudio name="recordedAudio" type="text" /> -->
-                                                
-                                                <input id="recordedAudio" name="recordedAudio"  type="hidden" />
+                                                <input id="recordedAudio" name="recordedAudio" type="hidden" />
+                                                <input id="id_question" name="id_question"  type="hidden" />
                                                 <input name="{{ $question1 }}" type="hidden" />
                                             </div>
                                             	
@@ -97,7 +96,8 @@
 	//change the image on the screen
 	document.getElementsByClassName("record_img")[0].src = "/assets/images/banner/beproficient_record_button.png";
  
- 	var timeleft = "{{ $question->duration }}";
+ 	var timeleft = 5;
+
 
  	//countdown timer activation
 	var downloadTimer = setInterval(function(){
@@ -139,14 +139,20 @@
 
          	reader.onloadend = () =>{
 
-         		console.log(reader.result);
+         		//console.log(reader.result);
+         		//$('#recordedAudio').append(reader.result);
+
+         		document.getElementById('recordedAudio').setAttribute("value", reader.result);
+
+         		setInterval(function(){ document.getElementById('question1').submit()}, 3000);
+         		
          
          }//reader.onloadend
 
      } //rec.onstop
 
-     rec.start();
-     setInterval(function(){ rec.stop() }, 30000);
+     rec.start()
+     setInterval(function(){ rec.stop() }, 3000);
     
 
 }, err => {
