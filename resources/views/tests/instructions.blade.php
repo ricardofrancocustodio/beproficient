@@ -24,6 +24,13 @@
                         <form action="{{ action('TestController@store') }}" method="POST">
                             @csrf
                             <input type="hidden" name="id_testtype" value="{{ $instructions }}">
+                            Stop the Mock Test anytime you want<br>
+                            The questions are automatically picked<br>
+                            Follow your progress listening your answers <br>
+                            You cannot pause the Mock Test<br>
+                            Allow access to the microphone<br>
+                            
+
                             <button class="btn btn-success" style="width: 100%;">Start Test</button>
                         </form>
 

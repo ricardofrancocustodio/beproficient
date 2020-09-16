@@ -25,16 +25,25 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="/./home" class="nav-link">
-              <i class="nav-icon fas fa-chart-line"></i>
+            <a href="/./englishproficiencytest" class="nav-link">
+              <i class="nav-icon fas fa-headphones-alt"></i>
               <p>
-                Dashboard
+                Speaking Tests
                 <span class="right badge badge-danger"></span>
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview menu-close">
-            <a href="#" class="nav-link"><!-- nav-link active -->
+          <li class="nav-item">
+            <a href="/./testlist" class="nav-link">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Your Test List
+                <span class="right badge badge-danger"></span>
+              </p>
+            </a>
+          </li>
+          <!-- <li class="nav-item has-treeview menu-close">
+            <a href="#" class="nav-link"><-- nav-link active --
               <i class="nav-icon fas fa-toolbox"></i>
               <p>
                 Tests
@@ -43,7 +52,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/./testlist" class="nav-link ">
+                <a href="" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Test List</p>
                 </a>
@@ -53,10 +62,10 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Choose Test</p>
                 </a>
-              </li>
+              </li> 
               
             </ul>
-          </li>
+          </li>-->
           
           <li class="nav-item">
 

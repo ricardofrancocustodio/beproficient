@@ -25,7 +25,7 @@ class TestController extends Controller
     public function index()
     {
         
-       //die();
+       die();
 
         $array_question         = Question::pluck('id_question')->toArray();
 

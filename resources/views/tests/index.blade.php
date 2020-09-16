@@ -62,7 +62,7 @@
                                             </div>
                                             	
                                             <div class="col-md-3">
-                                              <button type="button" class="btn btn-primary btn-lg" id="" onclick="confirmation();">Cancel Test</button>
+                                              <button type="button" class="btn btn-primary btn-lg" id="" onclick="confirmation();">Stop Test</button>
                                                 
                                             </div>
                                         </div>
@@ -79,7 +79,7 @@
 
 <script>
 	function confirmation() {
-  	var c = confirm("Do you really want to cancel the test?");
+  	var c = confirm("Do you really want to stop the test?");
 
   	if (c = true)
   	{
