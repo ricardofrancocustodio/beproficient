@@ -27,7 +27,7 @@
                                
                                 <div id="quizcontainer">
                                     <br>
-                                   <!--  <h4 style="text-align: right;">Question 1 of 25:</h4> --><!-- BUSCAR NO BANCO A QTD E DEPOIS PEDIR PARA O USUARIO SETAR A QUANTIDADE-->
+                                    <!-- <h4 style="text-align: right;">Question <span id="count" class="count"></span> of {{$questioncount}}</h4> BUSCAR NO BANCO A QTD E DEPOIS PEDIR PARA O USUARIO SETAR A QUANTIDADE-->
                                     
                                     <p class="list-group-item list-group-item-action active" id="qtext" style="font-weight: bold; font-family: times new roman; font-size: 20px;">{{ $question->text }}</b></p>
                                    
@@ -62,7 +62,7 @@
                                             </div>
                                             	
                                             <div class="col-md-3">
-                                                
+                                              <button type="button" class="btn btn-primary btn-lg" id="" onclick="confirmation();">Cancel Test</button>
                                                 
                                             </div>
                                         </div>
@@ -78,6 +78,16 @@
 
 
 <script>
+	function confirmation() {
+  	var c = confirm("Do you really want to cancel the test?");
+
+  	if (c = true)
+  	{
+  		window.location.href = '/testlist';
+  	}
+
+
+	}
 
    var play = document.getElementById("playing");
 
@@ -144,9 +154,8 @@
 
          		document.getElementById('recordedAudio').setAttribute("value", reader.result);
 
-         		setInterval(function(){ document.getElementById('question1').submit()}, 3000);
-         		
-         
+         		setInterval(function(){ document.getElementById('question1').submit(); }, 3000);
+
          }//reader.onloadend
 
      } //rec.onstop

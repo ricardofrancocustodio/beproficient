@@ -24,31 +24,41 @@ class TestController extends Controller
      */
     public function index()
     {
-        die();
-
-        $array_question = Question::pluck('id_question')->toArray();
-
-        $shuffle        = Arr::shuffle($array_question);
-
-
-        foreach ($shuffle as $key => $value) 
-        {
-            # code...
-
-             $question           = Question::select('questions.id_question', 'questions.soundquestion', 'questions.img', 'questions.text', 'questions.vid', 'questions.duration')->find($key);
-
-        }
-
-       // $question           = DB::table('questions')->where('id_question', 1)->get();
-        $question           = Question::select('questions.id_question', 'questions.soundquestion', 'questions.img', 'questions.text', 'questions.vid', 'questions.duration')->find($shuffle[0]);
-        //$test1           = DB::table('tests')->where('id_test', 1)->get();
         
-        $question1 = DB::getPDO()->lastInsertId();
-      //die();
+       //die();
 
-        //return view('tests.index', ['users' => $test]);
-        //return view('tests.index', compact('test', 'session_id'));
-        return view('tests.index', compact('question', 'question1'));
+        $array_question         = Question::pluck('id_question')->toArray();
+
+        $shuffle                = Arr::shuffle($array_question);
+
+
+       /* for($i=$shuffle; $i != 0; $i--)
+        {
+           if (!empty($shuffle))
+            {
+            $aux                    = $shuffle;//$aux vai estar com o array -1
+            $shuffle                = Arr::shuffle($aux);
+            $arrayshift             = array_shift($shuffle);
+           
+           
+            }
+
+            $questioncount = count($shuffle);
+          
+        }*/
+        //die();
+
+        $question               = Question::select('questions.id_question', 'questions.soundquestion', 'questions.img', 'questions.text', 'questions.vid', 'questions.duration')->find($shuffle[0]);
+    
+        $questioncount          = count($shuffle);
+
+
+        $question1              = DB::getPDO()->lastInsertId();
+
+
+   
+        return view('tests.index', compact('question', 'question1', 'questioncount'));
+            
 
     }
 
