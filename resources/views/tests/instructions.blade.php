@@ -21,19 +21,22 @@
 
 
                     <div class="row">
-                        <form action="{{ action('TestController@store') }}" method="POST">
+                        <form action="{{ action('TestController@store') }}" method="POST" style="width: 100%;">
                             @csrf
-                            <input type="hidden" name="id_testtype" value="{{ $instructions }}">
-                            Stop the Mock Test anytime you want<br>
-                            The questions are automatically picked<br>
-                            Follow your progress listening your answers <br>
-                            You cannot pause the Mock Test<br>
-                            Allow access to the microphone<br>
-                            
+                            <div class="col-md-12">
+                                <input type="hidden" name="id_testtype" value="{{ $instructions }}">
+                                Stop the Mock Test anytime you want<br>
+                                The questions are automatically picked<br>
+                                Follow your progress listening your answers <br>
+                                You cannot pause the Mock Test<br>
+                                Allow access to the microphone<br>
 
-                            <button class="btn btn-success" style="width: 100%;">Start Test</button>
+                                <button class="btn btn-success" style="width: 100%;">Start Test</button>
+                                
+                            </div>
+
                         </form>
-
+                        
                     </div>
                         
                 </div>

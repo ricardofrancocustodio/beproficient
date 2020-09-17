@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Practicing Tests') }}</div>
+                <div class="card-header">{{ __('Speaking Tests') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -37,7 +37,7 @@
                             <form action="/instructions" method="PATCH">
                                 @csrf
                                <input type="hidden" name="id_testtype" value="1">
-                                <button class="btn btn-secondary" type="submit" style="width: 100%;">
+                                <button class="btn btn-info" type="submit" style="width: 100%;">
                                     Start Test
                                 </a>
                             </form>
@@ -59,14 +59,14 @@
                           </div>
                           <!-- /.card-header -->
                           <div class="card-body clearfix">
-                            <blockquote class="quote-secondary">
+                            <blockquote class="quote-info">
                               <p>More than 10,000 organisations globally trust IELTS®, so when you take the test you can be confident that it is recognised by educational institutions, employers, governments and professional bodies around the world.</p>
                               <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
                             </blockquote>
                             <form action="/instructions" method="PATCH">
                                 @csrf
                                 <input type="hidden" name="id_testtype" value="2">
-                                <button class="btn btn-secondary" type="submit" style="width: 100%;">
+                                <button class="btn btn-info" type="submit" style="width: 100%;">
                                     Start Test
                                 </a>
                             </form>
@@ -110,7 +110,52 @@
                           </div>
                           <!-- /.card-header -->
                           <div class="card-body clearfix">
-                            <blockquote class="quote-secondary">
+                            <blockquote class="quote-info">
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                              <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                            </blockquote>
+                            Coming soon...
+                          </div>
+                          <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                      </div>
+                      <!-- ./col -->
+                    </div>
+                    <!-- /.row -->
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="card">
+                          <div class="card-header">
+                            <h3 class="card-title">
+                              <img src="/assets/images/banner/beproficient_ukflag.gif" />
+                              IBT® Preparation
+                            </h3>
+                          </div>
+                          <!-- /.card-header -->
+                          <div class="card-body">
+                            <blockquote>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                              <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                            </blockquote>
+                            Coming soon...
+                          </div>
+                          <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                      </div>
+                      <!-- ./col -->
+                      <div class="col-md-6">
+                        <div class="card">
+                          <div class="card-header">
+                            <h3 class="card-title">
+                              <img src="/assets/images/banner/bepoficient_usaflag.gif" />
+                              DUOLINGO Preparation
+                            </h3>
+                          </div>
+                          <!-- /.card-header -->
+                          <div class="card-body clearfix">
+                            <blockquote class="quote-info">
                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
                               <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
                             </blockquote>

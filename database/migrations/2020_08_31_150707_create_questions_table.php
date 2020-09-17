@@ -19,6 +19,7 @@ class CreateQuestionsTable extends Migration
             $table->string('img');
             $table->string('text');
             $table->string('vid');
+            $table->string('accent');
             $table->string('duration');
             $table->timestamps();
         });

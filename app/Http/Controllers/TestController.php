@@ -22,42 +22,28 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        
-       die();
+        //dd($request);
+       //die();
 
-        $array_question         = Question::pluck('id_question')->toArray();
+        $array_question         = Question::where('questions.accent', $request->type)->pluck('id_question')->toArray();
 
         $shuffle                = Arr::shuffle($array_question);
+      
 
-
-       /* for($i=$shuffle; $i != 0; $i--)
-        {
-           if (!empty($shuffle))
-            {
-            $aux                    = $shuffle;//$aux vai estar com o array -1
-            $shuffle                = Arr::shuffle($aux);
-            $arrayshift             = array_shift($shuffle);
-           
-           
-            }
-
-            $questioncount = count($shuffle);
-          
-        }*/
-        //die();
-
-        $question               = Question::select('questions.id_question', 'questions.soundquestion', 'questions.img', 'questions.text', 'questions.vid', 'questions.duration')->find($shuffle[0]);
+        $question               = Question::select('questions.id_question', 'questions.soundquestion', 'questions.img', 'questions.text', 'questions.vid', 'questions.accent','questions.duration')
+                //->where('questions.accent', $request->type)
+                ->findOrFail($shuffle[0]);
     
         $questioncount          = count($shuffle);
 
-
+        $type                   = $request->type;
         $question1              = DB::getPDO()->lastInsertId();
 
 
    
-        return view('tests.index', compact('question', 'question1', 'questioncount'));
+        return view('tests.index', compact('question', 'question1', 'questioncount', 'type'));
             
 
     }
@@ -143,13 +129,15 @@ class TestController extends Controller
         $test->created_by_user_id   = Auth::id();
         $test->save();
 
+        $type = $test->id_testtype;
        
 
          // segundo busca as linhas de questoes no bd e faz um shuffle (random)
          //... sem incluir as que ja foram escolhidas anteriormente para evitar repetiçoes
 
          //retona para a mesma view com as informaçoes sobre a nova questao.
-         return redirect('tests');
+         //return view ('tests.index',  ['type' => $type]);
+         return redirect()->route('tests.index', ['type' => $type]);
     }
 
     public function savequestions(Request $request)
@@ -160,11 +148,15 @@ class TestController extends Controller
 
         $questionhasanswer                      = new Questionhasanswer();
         $questionhasanswer->id_test             = $test->id_test;
-        $questionhasanswer->id_question         = 1;//$question->id_question; vem da index
+        $questionhasanswer->id_question         = $request->id_question; //vem da index
         $questionhasanswer->answer              = $request->recordedAudio;
         $questionhasanswer->save();
 
-        return redirect ('tests');
+        $type                                   = $request->type;
+
+        return redirect()->route('tests.index', ['type' => $type]);
+
+        //return redirect ('tests');
 
 
     }

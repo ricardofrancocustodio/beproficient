@@ -29,7 +29,7 @@
                                     <br>
                                     <!-- <h4 style="text-align: right;">Question <span id="count" class="count"></span> of {{$questioncount}}</h4> BUSCAR NO BANCO A QTD E DEPOIS PEDIR PARA O USUARIO SETAR A QUANTIDADE-->
                                     
-                                    <p class="list-group-item list-group-item-action active" id="qtext" style="font-weight: bold; font-family: times new roman; font-size: 20px;">{{ $question->text }}</b></p>
+                                    <p class="list-group-item list-group-item-action active" id="qtext" style="font-weight: bold; font-family: times new roman; font-size: 20px;">{{ $question['text'] }}</b></p>
                                    
                                         <div style="position:relative;width:100%; text-align: center; ">
                                             <div id="altcontainer">
@@ -40,7 +40,7 @@
                                                     <!-- <button class="fas fa-volume-up" id="play" name="play" onclick="playing();">
                                                     </button> -->
                                                      
-                                                     	<audio autoplay src="{{ $question->soundquestion }}" controlsList="nodownload" id="playing"/>
+                                                     	<audio autoplay src="{{ $question['soundquestion'] }}" controlsList="nodownload" id="playing"/>
                                                     
                                                 </label>
                                             </div>
@@ -57,7 +57,8 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <input id="recordedAudio" name="recordedAudio" type="hidden" />
-                                                <input id="id_question" name="id_question"  type="hidden" />
+                                                <input id="id_question" name="id_question"  type="hidden" value="{{ $question['id_question'] }}" />
+                                                <input type="hidden" name="type" value="{{ $question['accent'] }}">
                                                 <input name="{{ $question1 }}" type="hidden" />
                                             </div>
                                             	
