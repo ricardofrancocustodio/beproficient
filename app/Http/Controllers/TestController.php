@@ -89,6 +89,7 @@ class TestController extends Controller
             ->join('testtypes', 'tests.id_testtype', '=', 'testtypes.id_testtype')
             //->select('testtypes.name')
             ->where('tests.created_by_user_id', Auth::id())
+            ->orderBy('tests.id_test', 'desc')
             ->paginate(5);
 
         return view('tests.testlist', compact('test'));
@@ -106,6 +107,26 @@ class TestController extends Controller
         
 
     }
+
+     public function testquestion(Request $request)
+    {
+        //
+
+        //dd(); 
+
+        $test = Question::join('questionhasanswers', 'questions.id_question','=', 'questionhasanswers.id_question')
+            ->join('tests', 'tests.id_test','=','questionhasanswers.id_test')
+            //->where('questions.id_test',$id)
+            ->get();
+
+        //dd($test);
+
+        return view('tests.testquestion')->withTest($test);
+        
+
+    }
+
+
 
 
     public function create()

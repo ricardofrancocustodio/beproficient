@@ -69,7 +69,7 @@
                                   <span class="badge badge-success">Success</span>
                               </td>
                               <td class="project-actions text-right">
-                                  <a class="btn btn-primary btn-sm" href="#">
+                                  <a class="btn btn-primary btn-sm" href="{{ route('tests.testquestion' , $linha->id_test) }}">
                                       <i class="fas fa-eye" title="View test">
                                       </i>
                                      
