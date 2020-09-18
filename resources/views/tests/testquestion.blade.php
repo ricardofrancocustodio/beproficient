@@ -31,7 +31,7 @@
               <div class="card-body table-responsive p-0" style="height: 300px;">
                 <table class="table table-head-fixed text-nowrap">
                   <thead>
-                    @foreach ($test as $key => $value)
+                    
                     <tr>
                       <th>Question</th>
                       <th>Text</th>
@@ -39,12 +39,13 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach ($test as $key => $value)
                     <tr>
                       <td>John Doe</td>
-                      <td>{{$value['text']}}</td>
+                      <td>{{$value->text}}</td>
                       <td>
                         <a class="btn btn-app">
-                          <i class="fas fa-play fa-xs" ></i> Play
+                          <i class="fas fa-play fa-xs" id="play" onclick="playing();"></i> Play
                         </a>
                       </td>
                     </tr>
@@ -77,6 +78,24 @@
     <!-- row jsutify-content-center -->
 </div>
 <!-- container -->
+<script>
 
+
+  function playing()
+  {
+    var audio = new Audio("{{$test2->answer}}");
+    audio.play();
+
+    document.getElementById("play").className = "fas fa-pause fa-xs";
+audio.addEventListener("ended", event => {
+  
+  document.getElementById("play").className = "fas fa-play fa-xs";
+});
+  }
+
+  
+
+  audio.onloadend
+</script>
 
 @endsection

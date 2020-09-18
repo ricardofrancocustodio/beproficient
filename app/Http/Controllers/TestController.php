@@ -108,20 +108,20 @@ class TestController extends Controller
 
     }
 
-     public function testquestion(Request $request)
+     public function testquestion($id)
     {
-        //
-
-        //dd(); 
-
+        //dd($id);
         $test = Question::join('questionhasanswers', 'questions.id_question','=', 'questionhasanswers.id_question')
-            ->join('tests', 'tests.id_test','=','questionhasanswers.id_test')
-            //->where('questions.id_test',$id)
-            ->get();
+                ->select('questions.text', 'questionhasanswers.answer')         
+                ->where('questionhasanswers.id_test',$id)
+                ->get();
 
-        //dd($test);
+        $test2 = Test::join('questionhasanswers', 'tests.id_test','=', 'questionhasanswers.id_test')
+                ->select('questionhasanswers.answer')     
+                ->findOrFail($id);
+        //dd($test2);
 
-        return view('tests.testquestion')->withTest($test);
+        return view('tests.testquestion', compact('test', 'test2'));//)->withTest($test);
         
 
     }

@@ -24,7 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/store', 'TestController@store')->name('store');
 Route::post('/savequestions', 'TestController@savequestions')->name('savequestions');
 Route::get('/englishproficiencytest', 'TestController@englishproficiencytest')->name('englishproficiencytest');
-Route::any('/testquestion', 'TestController@testquestion')->name('tests.testquestion');
+Route::any('/testquestion/{id}', 'TestController@testquestion')->name('tests.testquestion');
 Route::get('/instructions', 'TestController@instructions')->name('instructions');
 Route::any('/testtoefl', 'TestController@testToefl')->name('testtoefl');
 Route::get('/testlist', 'TestController@testlist')->name('testlist');
