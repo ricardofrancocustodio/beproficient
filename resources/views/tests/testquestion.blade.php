@@ -23,7 +23,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Fixed Header Table</h3>
+                <!-- <h3 class="card-title">Fixed Header Table</h3> -->
 
                 
               </div>
@@ -34,19 +34,15 @@
                     
                     <tr>
                       <th>Question</th>
-                      <th>Text</th>
                       <th>Your Answer</th>
                     </tr>
                   </thead>
                   <tbody>
                     @foreach ($test as $key => $value)
                     <tr>
-                      <td>John Doe</td>
                       <td>{{$value->text}}</td>
                       <td>
-                        <a class="btn btn-app">
-                          <i class="fas fa-play fa-xs" id="play" onclick="playing();"></i> Play
-                        </a>
+                          <audio src="{{ $value->answer }}" controls  controlslist= nodownload ></audio>
                       </td>
                     </tr>
                    @endforeach 
@@ -59,7 +55,7 @@
           </div>
         </div>
         <!-- /.row -->
-                 
+                 <button type="button" class="btn btn-secondary" onclick="history.back(-1);">Voltar</button>
 
 
 
@@ -72,6 +68,7 @@
                 </nav>
             </div>
             <!-- card-->
+
         </div>
         <!-- col-md-12 -->
     </div>
@@ -80,17 +77,18 @@
 <!-- container -->
 <script>
 
+$('i[id=play]').one('click', function() {
+     $(this).attr('disabled','disabled');
+  
+});
 
   function playing()
   {
     var audio = new Audio("{{$test2->answer}}");
     audio.play();
 
-    document.getElementById("play").className = "fas fa-pause fa-xs";
-audio.addEventListener("ended", event => {
-  
-  document.getElementById("play").className = "fas fa-play fa-xs";
-});
+   
+
   }
 
   

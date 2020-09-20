@@ -29,6 +29,9 @@ Route::get('/instructions', 'TestController@instructions')->name('instructions')
 Route::any('/testtoefl', 'TestController@testToefl')->name('testtoefl');
 Route::get('/testlist', 'TestController@testlist')->name('testlist');
 Route::resource('/tests', 'TestController');
+Route::resource('/testquestion', 'TestController');
+
+Route::delete('testquestion/{id}', 'TestController@destroy')->name('testquestion.destroy');
 //Route::resource('/testquestion', 'TestController');
 //Route::resource('/tests', 'TestController');
 //Route::post('/tests', 'TestController@ajaxRequestPost')->name('tests');

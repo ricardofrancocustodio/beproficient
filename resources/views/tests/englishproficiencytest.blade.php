@@ -25,14 +25,14 @@
                           <div class="card-header">
                             <h3 class="card-title">
                               <img src="/assets/images/banner/bepoficient_usaflag.gif" />
-                              TOEFL® Preparation
+                              TOEFL IBT® Preparation
                             </h3>
                           </div>
                           <!-- /.card-header -->
                           <div class="card-body">
-                            <blockquote>
-                              <p>Accepted and preferred by universities worldwide, the TOEFL® test is a high-quality, high-standard test that assures admissions officers of your readiness for the classroom and beyond.</p>
-                              <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                            <blockquote class="quote-info">
+                              <p>Accepted and preferred by universities worldwide, the TOEFL® test is a high-quality, high-standard test that assures admissions officers of your readiness for the classroom and beyond. TOEFL is one of the two major English-language tests in the world.</p>
+                             <!--  <small>Someone famous in <cite title="Source Title">Source Title</cite></small> -->
                             </blockquote>
                             <form action="/instructions" method="PATCH">
                                 @csrf
@@ -61,7 +61,7 @@
                           <div class="card-body clearfix">
                             <blockquote class="quote-info">
                               <p>More than 10,000 organisations globally trust IELTS®, so when you take the test you can be confident that it is recognised by educational institutions, employers, governments and professional bodies around the world.</p>
-                              <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                              <!-- <small>Someone famous in <cite title="Source Title">Source Title</cite></small> -->
                             </blockquote>
                             <form action="/instructions" method="PATCH">
                                 @csrf
@@ -78,97 +78,7 @@
                       <!-- ./col -->
                     </div>
                     <!-- /.row -->
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="card">
-                          <div class="card-header">
-                            <h3 class="card-title">
-                              <img src="/assets/images/banner/beproficient_ukflag.gif" />
-                              CAMBRIDGE® Preparation
-                            </h3>
-                          </div>
-                          <!-- /.card-header -->
-                          <div class="card-body">
-                            <blockquote>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                              <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-                            </blockquote>
-                            Coming soon...
-                          </div>
-                          <!-- /.card-body -->
-                        </div>
-                        <!-- /.card -->
-                      </div>
-                      <!-- ./col -->
-                      <div class="col-md-6">
-                        <div class="card">
-                          <div class="card-header">
-                            <h3 class="card-title">
-                              <img src="/assets/images/banner/bepoficient_usaflag.gif" />
-                              TOEIC® Preparation
-                            </h3>
-                          </div>
-                          <!-- /.card-header -->
-                          <div class="card-body clearfix">
-                            <blockquote class="quote-info">
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                              <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-                            </blockquote>
-                            Coming soon...
-                          </div>
-                          <!-- /.card-body -->
-                        </div>
-                        <!-- /.card -->
-                      </div>
-                      <!-- ./col -->
-                    </div>
-                    <!-- /.row -->
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="card">
-                          <div class="card-header">
-                            <h3 class="card-title">
-                              <img src="/assets/images/banner/beproficient_ukflag.gif" />
-                              IBT® Preparation
-                            </h3>
-                          </div>
-                          <!-- /.card-header -->
-                          <div class="card-body">
-                            <blockquote>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                              <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-                            </blockquote>
-                            Coming soon...
-                          </div>
-                          <!-- /.card-body -->
-                        </div>
-                        <!-- /.card -->
-                      </div>
-                      <!-- ./col -->
-                      <div class="col-md-6">
-                        <div class="card">
-                          <div class="card-header">
-                            <h3 class="card-title">
-                              <img src="/assets/images/banner/bepoficient_usaflag.gif" />
-                              DUOLINGO Preparation
-                            </h3>
-                          </div>
-                          <!-- /.card-header -->
-                          <div class="card-body clearfix">
-                            <blockquote class="quote-info">
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                              <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-                            </blockquote>
-                            Coming soon...
-                          </div>
-                          <!-- /.card-body -->
-                        </div>
-                        <!-- /.card -->
-                      </div>
-                      <!-- ./col -->
-                    </div>
-                    <!-- /.row -->
-
+                   
 
 
                    <!-- end here -->

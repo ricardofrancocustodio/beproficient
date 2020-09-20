@@ -155,14 +155,14 @@
 
          		document.getElementById('recordedAudio').setAttribute("value", reader.result);
 
-         		setInterval(function(){ document.getElementById('question1').submit(); }, 3000);
+         		setInterval(function(){ document.getElementById('question1').submit(); }, 4000);
 
          }//reader.onloadend
 
      } //rec.onstop
 
      rec.start()
-     setInterval(function(){ rec.stop() }, 3000);
+     setInterval(function(){ rec.stop() }, 4000);
     
 
 }, err => {

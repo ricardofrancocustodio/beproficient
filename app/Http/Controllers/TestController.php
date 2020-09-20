@@ -92,7 +92,15 @@ class TestController extends Controller
             ->orderBy('tests.id_test', 'desc')
             ->paginate(5);
 
-        return view('tests.testlist', compact('test'));
+        $test2 = DB::table('tests')
+            ->join('testtypes', 'tests.id_testtype', '=', 'testtypes.id_testtype')
+            //->select('tests.id_test')
+            ->where('tests.created_by_user_id', Auth::id())
+            ->pluck('tests.id_test');
+            //->get();
+
+
+        return view('tests.testlist', compact('test', 'test2'));
         
 
     }
@@ -222,8 +230,16 @@ class TestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+     public function destroy($id)
     {
         //
+        $test  = Test::join('questionhasanswer', 'tests.id_test', 'questionhasanswer.id_test')
+            ->findOrFail($id);
+
+            dd($test);
+        
+        $test->delete();
+
+        return redirect('testlist')->with('flash_message', 'Test deleted!');
     }
 }

@@ -72,13 +72,16 @@
                                   <a class="btn btn-primary btn-sm" href="{{ route('tests.testquestion' , $linha->id_test) }}">
                                       <i class="fas fa-eye" title="View test">
                                       </i>
-                                     
                                   </a>
-                                  <a class="btn btn-danger btn-sm" href="#">
-                                      <i class="fas fa-trash" title="Delete test">
-                                      </i>
-                                      
-                                  </a>
+                                  <form action="{{ route('tests.destroy', $linha->id_test ) }}" id="deletetest">
+                                    
+                                    {{ method_field('DELETE') }}
+                                    {{ csrf_field() }}
+                                    <a class="btn btn-danger btn-sm" href="" >
+                                        <button type="submit"><i class="fas fa-trash" title="Delete test" onclick="confirmation();" ></i></button> 
+                                    </a>
+                                    
+                                  </form>
                               </td>
                           </tr>
                          @endforeach
@@ -103,6 +106,18 @@
     <!-- row jsutify-content-center -->
 </div>
 <!-- container -->
+<script>
+ function confirmation() {
+    var c = confirm("Do you really want to delete this test?");
 
+    if (c = true)
+    {
+      document.getElementById('deletetest').submit();
+    }
+
+
+  }
+
+</script>
 
 @endsection

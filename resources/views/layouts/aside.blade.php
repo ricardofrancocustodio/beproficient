@@ -26,9 +26,18 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item">
             <a href="/./englishproficiencytest" class="nav-link">
-              <i class="nav-icon fas fa-headphones-alt"></i>
+              <i class="nav-icon fas fa-microphone"></i>
               <p>
                 Speaking Tests
+                <span class="right badge badge-danger"></span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-headphones-alt"></i>
+              <p>
+                Listening Tests
                 <span class="right badge badge-danger"></span>
               </p>
             </a>
