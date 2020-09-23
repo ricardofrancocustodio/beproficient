@@ -30,6 +30,7 @@ Route::any('/testtoefl', 'TestController@testToefl')->name('testtoefl');
 Route::get('/testlist', 'TestController@testlist')->name('testlist');
 Route::resource('/tests', 'TestController');
 Route::resource('/testquestion', 'TestController');
+Route::resource('/blog', 'BlogController');
 
 Route::delete('testquestion/{id}', 'TestController@destroy')->name('testquestion.destroy');
 //Route::resource('/testquestion', 'TestController');

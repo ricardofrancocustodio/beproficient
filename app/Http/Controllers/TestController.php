@@ -35,6 +35,7 @@ class TestController extends Controller
         $question               = Question::select('questions.id_question', 'questions.soundquestion', 'questions.img', 'questions.text', 'questions.vid', 'questions.accent','questions.duration')
                 //->where('questions.accent', $request->type)
                 ->findOrFail($shuffle[0]);
+                //->findOrFail(18);
     
         $questioncount          = count($shuffle);
 

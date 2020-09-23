@@ -29,13 +29,14 @@
                                     <br>
                                     <!-- <h4 style="text-align: right;">Question <span id="count" class="count"></span> of {{$questioncount}}</h4> BUSCAR NO BANCO A QTD E DEPOIS PEDIR PARA O USUARIO SETAR A QUANTIDADE-->
                                     
-                                    <p class="list-group-item list-group-item-action active" id="qtext" style="font-weight: bold; font-family: times new roman; font-size: 20px;">{{ $question['text'] }}</b></p>
+                                    <p class="list-group-item list-group-item-success" id="qtext" style="font-weight: bold; font-family: times new roman; font-size: 20px; ">{{ $question['text'] }}</b></p>
                                    
                                         <div style="position:relative;width:100%; text-align: center; ">
                                             <div id="altcontainer">
                                                 <label class='radiocontainer' id='label2'> 
                                                   &nbsp;&nbsp;
-                                                  <img src="/assets/images/banner/recording.png" width="20%" height="100px" class="record_img">
+                                                  <p  class="record_img"></p>
+                                                  <!-- <img src="/assets/images/banner/recording.png" width="20%" height="100px" class="record_img"> -->
                                                   <p id="timer" style="text-align: center; font-size: 50px; color: red;"></p>
                                                     <!-- <button class="fas fa-volume-up" id="play" name="play" onclick="playing();">
                                                     </button> -->
@@ -96,6 +97,8 @@
    
  	play.play();
 
+    document.getElementById('timer').innerHTML = "Listen...";
+
  	}
 
 	play.addEventListener('ended', function(ev){
@@ -105,7 +108,9 @@
 	beep.play();
 
 	//change the image on the screen
-	document.getElementsByClassName("record_img")[0].src = "/assets/images/banner/beproficient_record_button.png";
+    //document.getElementById('timer').innerHTML = "Recording...";
+	document.getElementsByClassName("record_img")[0].src = "/assets/images/banner/recording.png";
+   // document.getElementById("record_img") = "REC";
  
  	var timeleft = 5;
 
@@ -116,7 +121,7 @@
 	    clearInterval(downloadTimer);
 	    document.getElementById("timer").innerHTML = "Finished";
 	  } else {
-	    document.getElementById("timer").innerHTML = timeleft + " ";
+	    document.getElementById("timer").innerHTML = "Recording...<br> " + timeleft;
 	  }
 	  timeleft -= 1;
 	}, 1000);
