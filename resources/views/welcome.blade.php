@@ -66,9 +66,9 @@
                 <div class="row align-items-center">
                     <div class="col-xl-5 col-lg-6">
                         <div class="header-content-right">
-                            <h4 class="sub-title">SPEAK & LISTENING</h4>
+                            <h5 class="sub-title">Practice SPEAK & LISTENING</h5>
                             <h1 class="title">MOCK TESTS</h1>
-                            <p>English test simulators</p>
+                            <p>Updated English Test Simulators</p>
                             <a class="main-btn" href="#work">Start Test</a>
                         </div> <!-- header content right -->
                     </div>

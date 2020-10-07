@@ -10,9 +10,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
        @include('layouts.menuapp')
        <div id="parallax" class="header-content d-flex align-items-center">
             <main class="col-md-12">
+
                 @yield('content')
             </main>
         </div>
     </div>
 </body>
 </html>
+@include('layouts.reqscriptsapp')
+<script type="text/javascript">
+    $('body').addClass('stop-scrolling');
+</script>

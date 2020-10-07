@@ -40,7 +40,7 @@
                   <tbody>
                     @foreach ($test as $key => $value)
                     <tr>
-                      <td>{{$value->text}}</td>
+                      <td class="text-break text-wrap" >{{$value->text}}</td>
                       <td>
                           <audio src="{{ $value->answer }}" controls  controlslist= nodownload ></audio>
                       </td>

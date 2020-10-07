@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header" style="text-align: right;">{{ __('Practicing Test') }}</div>
+                <div class="card-header" style="text-align: right;">Practicing Test</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -26,10 +26,10 @@
                                 @csrf
                                
                                 <div id="quizcontainer">
+                                
+                                    <h4 style="text-align: left;">Question:  <span id="count" class="count"></span></h4> <!-- BUSCAR NO BANCO A QTD E DEPOIS PEDIR PARA O USUARIO SETAR A QUANTIDADE-->
                                     <br>
-                                    <!-- <h4 style="text-align: right;">Question <span id="count" class="count"></span> of {{$questioncount}}</h4> BUSCAR NO BANCO A QTD E DEPOIS PEDIR PARA O USUARIO SETAR A QUANTIDADE-->
-                                    
-                                    <p class="list-group-item list-group-item-success" id="qtext" style="font-weight: bold; font-family: times new roman; font-size: 20px; ">{{ $question['text'] }}</b></p>
+                                    <ol><p class="" id="qtext" style="font-weight: bold; font-size: 20px; color: black;">{{ $question['text'] }}</b></p></ol>
                                    
                                         <div style="position:relative;width:100%; text-align: center; ">
                                             <div id="altcontainer">
@@ -37,7 +37,7 @@
                                                   &nbsp;&nbsp;
                                                   <p  class="record_img"></p>
                                                   <!-- <img src="/assets/images/banner/recording.png" width="20%" height="100px" class="record_img"> -->
-                                                  <p id="timer" style="text-align: center; font-size: 50px; color: red;"></p>
+                                                  <p id="timer" style="text-align: center; font-size: 50px; color: gray;"></p>
                                                     <!-- <button class="fas fa-volume-up" id="play" name="play" onclick="playing();">
                                                     </button> -->
                                                      
@@ -64,7 +64,7 @@
                                             </div>
                                             	
                                             <div class="col-md-3">
-                                              <button type="button" class="btn btn-primary btn-lg" id="" onclick="confirmation();">Stop Test</button>
+                                              <button type="button" class="btn btn-danger btn-lg" id="" onclick="confirmation();">Stop Test</button>
                                                 
                                             </div>
                                         </div>
@@ -121,7 +121,7 @@
 	    clearInterval(downloadTimer);
 	    document.getElementById("timer").innerHTML = "Finished";
 	  } else {
-	    document.getElementById("timer").innerHTML = "Recording...<br> " + timeleft;
+	    document.getElementById("timer").innerHTML = "Recording...  " + timeleft;
 	  }
 	  timeleft -= 1;
 	}, 1000);
@@ -160,14 +160,14 @@
 
          		document.getElementById('recordedAudio').setAttribute("value", reader.result);
 
-         		setInterval(function(){ document.getElementById('question1').submit(); }, 4000);
+         		setInterval(function(){ document.getElementById('question1').submit(); }, 6000); //1 segundo acima do total
 
          }//reader.onloadend
 
      } //rec.onstop
 
      rec.start()
-     setInterval(function(){ rec.stop() }, 4000);
+     setInterval(function(){ rec.stop() }, 6000);
     
 
 }, err => {

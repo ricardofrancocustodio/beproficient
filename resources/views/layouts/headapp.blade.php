@@ -29,5 +29,12 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
+        <style type="text/css">
+            .stop-scrolling {
+                height: 100%;
+              overflow: hidden;
+            }
+        </style>
+
         
     </head>
