@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header" style="text-align: right;">Practicing Test</div>
+                <div class="card-header" style="text-align: right;">The next question will load automatically.</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -81,15 +81,21 @@
 
 <script>
 	function confirmation() {
-  	var c = confirm("Do you really want to stop the test?");
 
-  	if (c = true)
-  	{
-  		window.location.href = '/testlist';
-  	}
+  	 var c = confirm("Do you really want to stop this test?");
 
+    if (c == true)
+    {
+      
+       window.location = "/testlist";
+      
+    } else{
 
-	}
+      return false
+      return 0;
+    }
+
+  }
 
    var play = document.getElementById("playing");
 

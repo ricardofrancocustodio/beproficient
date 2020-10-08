@@ -220,9 +220,10 @@ class TestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
         //
+
     }
 
     /**
@@ -233,11 +234,10 @@ class TestController extends Controller
      */
      public function destroy($id)
     {
-        //
-        $test  = Test::join('questionhasanswer', 'tests.id_test', 'questionhasanswer.id_test')
+        //dd('oi');
+        $test  = Test::join('questionhasanswers', 'tests.id_test', 'questionhasanswers.id_test')
             ->findOrFail($id);
-
-            dd($test);
+           
         
         $test->delete();
 

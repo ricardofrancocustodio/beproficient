@@ -28,4 +28,7 @@ class Test extends Model
 	
     //
      protected $primaryKey = 'id_test';
+
+     
+    public $timestamps = true;
 }

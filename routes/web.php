@@ -26,13 +26,14 @@ Route::post('/savequestions', 'TestController@savequestions')->name('savequestio
 Route::get('/englishproficiencytest', 'TestController@englishproficiencytest')->name('englishproficiencytest');
 Route::any('/testquestion/{id}', 'TestController@testquestion')->name('tests.testquestion');
 Route::get('/instructions', 'TestController@instructions')->name('instructions');
-Route::any('/testtoefl', 'TestController@testToefl')->name('testtoefl');
-Route::get('/testlist', 'TestController@testlist')->name('testlist');
+//Route::any('/destroy/{id}', 'TestController@destroy')->name('tests.destroy');
+Route::get('/testlist', 'TestController@testlist')->name('tests.testlist');
 Route::resource('/tests', 'TestController');
-Route::resource('/testquestion', 'TestController');
+//Route::resource('/', 'TestController');
+Route::delete('/testlist', 'TestController@destroy')->name('tests.testlist');
 Route::resource('/blog', 'BlogController');
 
-Route::delete('testquestion/{id}', 'TestController@destroy')->name('testquestion.destroy');
+//Route::delete('testquestion/{id}', 'TestController@destroy')->name('testquestion.destroy');
 //Route::resource('/testquestion', 'TestController');
 //Route::resource('/tests', 'TestController');
 //Route::post('/tests', 'TestController@ajaxRequestPost')->name('tests');

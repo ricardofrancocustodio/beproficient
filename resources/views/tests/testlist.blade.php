@@ -24,7 +24,7 @@
                       <thead>
                           <tr>
                               <th style="width: 1%">
-                                  #
+                                 {{$test2}}
                               </th>
                               <th style="width: 20%">
                                   Test Name
@@ -69,19 +69,19 @@
                                   <span class="badge badge-success">Success</span>
                               </td>
                               <td class="project-actions text-right">
+                                <div class="btn-group" role="group">
                                   <a class="btn btn-primary btn-sm" href="{{ route('tests.testquestion' , $linha->id_test) }}">
                                       <i class="fas fa-eye" title="View test">
                                       </i>
                                   </a>
-                                  <form action="{{ route('tests.destroy', $linha->id_test ) }}" id="deletetest">
-                                    
-                                    {{ method_field('DELETE') }}
-                                    {{ csrf_field() }}
-                                    <a class="btn btn-danger btn-sm" href="" >
-                                        <button type="submit"><i class="fas fa-trash" title="Delete test" onclick="confirmation();" ></i></button> 
+                                  <form action="{{ route('tests.destroy', $linha->id_test) }}" method="POST" id="deletetest" >
+                                    @csrf
+                                    @method('DELETE')
+                                    <a class="btn btn-danger btn-sm"  style="color: white;" onclick="confirmation();" id="" >
+                                        <i class="fas fa-trash" title="Delete test"  ></i>
                                     </a>
-                                    
                                   </form>
+                                 </div> 
                               </td>
                           </tr>
                          @endforeach
@@ -107,14 +107,24 @@
 </div>
 <!-- container -->
 <script>
+
+
+
+
  function confirmation() {
+  
     var c = confirm("Do you really want to delete this test?");
 
-    if (c = true)
+    if (c == true)
     {
-      document.getElementById('deletetest').submit();
-    }
+      
+       document.getElementById('deletetest').submit();
+      
+    } else{
 
+      return false
+      return 0;
+    }
 
   }
 
