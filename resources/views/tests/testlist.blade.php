@@ -24,19 +24,13 @@
                       <thead>
                           <tr>
                               <th style="width: 1%">
-                                 {{$test2}}
+                                 
                               </th>
                               <th style="width: 20%">
                                   Test Name
                               </th>
-                              
-                              <th>
-                                  Test Progress
-                              </th>
-                              <th style="width: 8%" class="text-center">
-                                  Status
-                              </th>
-                              <th style="width: 20%">
+                              <th style="width: 20%; text-align: right;">
+                                Actions
                               </th>
                           </tr>
                       </thead>
@@ -52,21 +46,8 @@
                                   </a>
                                   <br/>
                                   <small>
-                                      Created 01.01.2019
+                                      
                                   </small>
-                              </td>
-                              
-                              <td class="project_progress">
-                                  <div class="progress progress-sm">
-                                      <div class="progress-bar bg-green" role="progressbar" aria-volumenow="57" aria-volumemin="0" aria-volumemax="100" style="width: 57%">
-                                      </div>
-                                  </div>
-                                  <small>
-                                      57% Complete
-                                  </small>
-                              </td>
-                              <td class="project-state">
-                                  <span class="badge badge-success">Success</span>
                               </td>
                               <td class="project-actions text-right">
                                 <div class="btn-group" role="group">
@@ -81,7 +62,7 @@
                                         <i class="fas fa-trash" title="Delete test"  ></i>
                                     </a>
                                   </form>
-                                 </div> 
+                                 
                               </td>
                           </tr>
                          @endforeach

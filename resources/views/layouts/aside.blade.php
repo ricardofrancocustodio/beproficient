@@ -33,7 +33,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-headphones-alt"></i>
               <p>
@@ -41,7 +41,7 @@
                 <span class="right badge badge-danger"></span>
               </p>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a href="/./testlist" class="nav-link">
               <i class="nav-icon fas fa-list"></i>
