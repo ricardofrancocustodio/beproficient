@@ -27,7 +27,7 @@
                                
                                 <div id="quizcontainer">
                                 
-                                    <h4 style="text-align: left;">Question:  <span id="count" class="count"></span></h4> <!-- BUSCAR NO BANCO A QTD E DEPOIS PEDIR PARA O USUARIO SETAR A QUANTIDADE-->
+                                    <h4 style="text-align: left;">Question:  <span id="count" name="count" class="count">{{ $count}}</span></h4> <!-- BUSCAR NO BANCO A QTD E DEPOIS PEDIR PARA O USUARIO SETAR A QUANTIDADE-->
                                     <br>
                                     <ol><p class="" id="qtext" style="font-weight: bold; font-size: 20px; color: black;">{{ $question['text'] }}</b></p></ol>
                                    

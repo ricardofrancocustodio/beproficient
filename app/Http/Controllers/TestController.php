@@ -30,7 +30,7 @@ class TestController extends Controller
         $array_question         = Question::where('questions.accent', $request->type)->pluck('id_question')->toArray();
 
         $shuffle                = Arr::shuffle($array_question);
-      
+
 
         $question               = Question::select('questions.id_question', 'questions.soundquestion', 'questions.img', 'questions.text', 'questions.vid', 'questions.accent','questions.duration')
                 //->where('questions.accent', $request->type)
@@ -40,11 +40,12 @@ class TestController extends Controller
         $questioncount          = count($shuffle);
 
         $type                   = $request->type;
+        $count                  = $request->count;
         $question1              = DB::getPDO()->lastInsertId();
 
 
    
-        return view('tests.index', compact('question', 'question1', 'questioncount', 'type'));
+        return view('tests.index', compact('question', 'question1', 'questioncount', 'type', 'count'));
             
 
     }
@@ -184,7 +185,14 @@ class TestController extends Controller
 
         $type                                   = $request->type;
 
-        return redirect()->route('tests.index', ['type' => $type]);
+        $lines                                  = DB::table('questionhasanswers')
+                                                    ->where('id_test', $test->id_test)
+                                                    ->pluck('id_qha');
+
+        $count                                  = count($lines) + 1;
+
+
+        return redirect()->route('tests.index', ['type' => $type, 'count' => $count]);
 
         //return redirect ('tests');
 
@@ -226,6 +234,24 @@ class TestController extends Controller
 
     }
 
+    public function contact()
+    {
+       
+        return view('contact');//, compact('test'));
+        
+
+    }
+
+     public function thankyou(Request $request)
+    {
+      // dd($request);
+
+        return view('thank-you');//, compact('test'));
+        
+
+    }
+
+
     /**
      * Remove the specified resource from storage.
      *
@@ -235,11 +261,13 @@ class TestController extends Controller
      public function destroy($id)
     {
         //dd('oi');
+
+        $test1 = Test::find($id);
+        $test1->delete();
+
         $test  = Test::join('questionhasanswers', 'tests.id_test', 'questionhasanswers.id_test')
             ->findOrFail($id);
-           
-        
-        $test->delete();
+     
 
         return redirect('testlist')->with('flash_message', 'Test deleted!');
     }

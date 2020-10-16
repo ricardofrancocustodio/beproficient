@@ -5,10 +5,13 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Laravel</title>
+        <title>English Academics :: English Tests Simulators for Business </title>
 
          <!--====== Favicon Icon ======-->
         <link rel="shortcut icon" href="/./assets/images/favicon.png" type="image/png">
+
+         <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 
         <!--====== Bootstrap css ======-->
         <link rel="stylesheet" href="/./assets/css/bootstrap.min.css">

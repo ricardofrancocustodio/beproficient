@@ -28,6 +28,13 @@ class BlogController extends Controller
         //
     }
 
+     public function practiceenglishspeaking()
+    {
+        //
+        return view('blog.articles.practice-english-speaking');
+    }
+
+   
     /**
      * Store a newly created resource in storage.
      *
