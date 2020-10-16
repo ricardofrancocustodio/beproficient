@@ -29,6 +29,12 @@ class HomeController extends Controller
     }
 
 
+    public function email()
+    {
+        
+        //dd($request);
+
+    }
    
 
 }

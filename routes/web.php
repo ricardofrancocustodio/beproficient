@@ -37,7 +37,7 @@ Route::resource('/tests', 'TestController');
 //Route::resource('/', 'TestController');
 Route::delete('/testlist', 'TestController@destroy')->name('tests.testlist');
 Route::resource('/blog', 'BlogController');
-//Route::get('email', 'HomeController@email');
+Route::get('/email', 'HomeController@email');
 
 //Route for mail
 Route::get('/mail/contactForm', function()
@@ -46,13 +46,14 @@ Route::get('/mail/contactForm', function()
 	//$user->from = 'contact@englishacademics.online';
 	$user->name = 'English Academics';
 	$user->email = 'ricardofranco.qa@gmail.com';
+	$user->subject = 'Teste';
 
-	//return new \App\Mail\contactForm($user);
+	//exibir as informaoes no navegador
+	return new \App\Mail\contactForm($user);
 
-	Mail::send(new contactForm($user));
+	//disparar o email
+	//Mail::send(new contactForm($user));
 });
-
-
 
 
 //Turnarund for Blog Posts (please, later save in DB)

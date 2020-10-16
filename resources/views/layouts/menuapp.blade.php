@@ -20,8 +20,9 @@
                                 <ul class="navbar-nav ml-auto">
                                         <!-- <li class="nav-item"><a class="page-scroll" href="#service">Services</a></li>
                                         <li class="nav-item"><a class="page-scroll" href="#work">Portfolio</a></li> -->
-                                        <li class="nav-item"><a class="page-scroll" href="#contact">We Believe</a></li>
-                                        <li class="nav-item"><a class="page-scroll" href="/blog">Blog</a></li>
+                                        
+                                        <li class="nav-item"><a class="page-scroll" href="#blog">Blog</a></li>
+                                         <li class="nav-item"><a class="page-scroll" href="#pricing">Pricing</a></li>
                                     @auth
                                         <li class="nav-item active"><a class="page-scroll"  href="{{ url('/home') }}">Home</a></li>
                                     @else
@@ -30,7 +31,8 @@
                                         <li class="nav-item"><a class="page-scroll" href="{{ route('register') }}">Register</a></li>
                                     @endif
                                     @endauth
-                                       
+                                        
+                                       <li class="nav-item"><a class="page-scroll" href="#contact">We Believe</a></li>
                                     </ul>
                             </div> <!-- navbar collapse -->
                               @endif

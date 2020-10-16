@@ -7,12 +7,20 @@
                             <a href="index.html">
                                 <img src="assets/images/logo-2.png" alt="Logo">
                             </a>
-                            <p class="mt-">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci- didunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exe- rcitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p class="mt-">
+                                    We believe low communication skills are never a good value.
+                                <br>We believe you don't have to feel ashamed when speaking. 
+                                <br>We believe in helping people to reach their goals.
+                                <br>We believe you can do great things.
+                                <br>We believe your time is valuable.<br>
+                                <br>We believe in you!
+                                                            </p>
                             <ul>
                                 <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
-                                <li><a href="#"><i class="lni-twitter-original"></i></a></li>
+                                <li><a href="#"><i class="lni-instagram-filled"></i></a></li>
+                                <!-- <li><a href="#"><i class="lni-twitter-original"></i></a></li> -->
                                 <li><a href="#"><i class="lni-pinterest"></i></a></li>
-                                <li><a href="#"><i class="lni-linkedin-original"></i></a></li>
+                                <!-- <li><a href="#"><i class="lni-linkedin-original"></i></a></li> -->
                             </ul>
                         </div> <!-- footer content -->
                     </div>
@@ -24,7 +32,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="copyright-text text-center pt-20">
-                            <p>Copyright © 2022. Template Crafted by <a href="https://uideck.com" rel="nofollow">UIdeck</a></p>
+                            <p>by <a href="#" rel="nofollow">Memory Media</a>&nbsp;&nbsp;&nbsp; Copyright © 2016-2020 &nbsp;-&nbsp;<a style="color: white;" href="#" rel="nofollow">Terms of Use </a>&nbsp;-&nbsp;<a style="color: white;" href="#" rel="nofollow">Privacy Policy </a></p> 
                         </div> <!-- copyright text -->
                     </div>
                 </div> <!-- row -->

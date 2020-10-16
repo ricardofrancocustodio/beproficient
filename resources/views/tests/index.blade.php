@@ -108,15 +108,15 @@
  	}
 
 	play.addEventListener('ended', function(ev){
-	
-	//play beep sound
-	var beep = new Audio('/assets/audio/beep.mp3');
-	beep.play();
 
 	//change the image on the screen
     //document.getElementById('timer').innerHTML = "Recording...";
 	document.getElementsByClassName("record_img")[0].src = "/assets/images/banner/recording.png";
    // document.getElementById("record_img") = "REC";
+
+   //play beep sound
+    var beep = new Audio('/assets/audio/beep.mp3');
+    beep.play();
  
  	var timeleft = 5;
 

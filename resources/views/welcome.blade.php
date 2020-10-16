@@ -80,22 +80,7 @@
                     </div>
                 </div> <!-- row -->
             </div> <!-- container -->
-            <div class="header-social">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="header-social-icon">
-                                <ul>
-                                    <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
-                                    <li><a href="#"><i class="lni-twitter-original"></i></a></li>
-                                    <li><a href="#"><i class="lni-behance-original"></i></a></li>
-                                    <li><a href="#"><i class="lni-linkedin-original"></i></a></li>
-                                </ul>
-                            </div> <!-- header social -->
-                        </div>
-                    </div> <!-- row -->
-                </div> <!-- container -->
-            </div> <!-- header social -->
+            
         </div> <!-- header content -->
 
 <!--     <section id="about" class="about-area pt-125 pb-130">
@@ -238,7 +223,7 @@
             <div class="row justify-content-center">
                 <div class="col-xl-8 col-lg-9">
                     <div class="call-action-content text-center">
-                        <h2 class="action-title">How Simulators Works?</h2>
+                        <h2 class="action-title">How Simulators Work?</h2>
                         <p>1. You choose the simulator that fits your needs.<br>
                         2. You listen to the questions.<br>
                         3. You record your answer.  </p>
@@ -375,103 +360,8 @@
         </div> <-- container --
     </section>
 
-    <--====== WORK PART ENDS ======--
-
-    <--====== PRICING PART START ======-->
-
-    <section id="pricing" class="pricing-area gray-bg pt-125 pb-130">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-title text-center pb-25">
-                        <h2 class="title">Pricing Plans</h2>
-                        <p></p>
-                    </div> <!-- section title -->
-                </div>
-            </div> <!-- row -->
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-8 col-sm-9">
-                    <div class="single-pricing active text-center mt-30">
-                        <div class="pricing-package">
-                            <h4 class="package-title">Proficiency</h4>
-                        </div>
-                        <div class="pricing-body">
-                            <div class="pricing-text">
-                                <p>Get Access to IELTS and TOEFL Speaking Modules</p>
-                                <span class="price">Free</span>
-                            </div>
-                            <div class="pricing-list">
-                                <ul>
-                                    <li>TOEFL / IELTS Speaking Test</li>
-                                    <li style="text-decoration: line-through;" >Listening Test</li>
-                                    <li style="text-decoration: line-through;">Vocabulary / Pronouciation Training</li>
-                                </ul>
-                            </div>
-                            <div class="pricing-btn">
-                                <a class="main-btn" href="/./register">let's go</a>
-                            </div>
-                        </div>
-                    </div> <!-- single pricing -->
-                </div>
-                <div class="col-lg-4 col-md-8 col-sm-9">
-                    <div class="single-pricing  text-center mt-30">
-                        <div class="pricing-package">
-                            <h4 class="package-title">Business</h4>
-                        </div>
-                        <div class="pricing-body">
-                            <div class="pricing-text">
-                                <p>Choose The Specific Speaking Module That Fits Your Needs</p>
-                                <span class="price">$69 / year</span>
-                            </div>
-                            <div class="pricing-list">
-                                <ul>
-                                    <li>Agribusiness</li>
-                                    <li>Aviation / Aeronautics</li>
-                                    <li>Listening Tests</li>
-                                    <li>Vocabulary / Pronouciation Training</li>
-                                </ul>
-                            </div>
-                            <div class="pricing-btn">
-                                <a class="main-btn" href="#contact">coming soon...</a>
-                            </div>
-                        </div>
-                    </div> <!-- single pricing -->
-                </div>
-                <div class="col-lg-4 col-md-8 col-sm-9">
-                    <div class="single-pricing text-center mt-30">
-                        <div class="pricing-package">
-                            <h4 class="package-title">Premium</h4>
-                        </div>
-                        <div class="pricing-body">
-                            <div class="pricing-text">
-                                <p>Unlimited Access to All Speaking Tests Modules</p>
-                                <span class="price">$99 / year</span>
-                            </div>
-                            <div class="pricing-list">
-                                <ul>
-                                    <li>TOEFL / IELTS Speaking Test</li>
-                                    <li>Listening Test</li>
-                                    <li>Agribusiness</li>
-                                    <li>Aviation / Aeronautics</li>
-                                    <li>Listening Tests</li>
-                                    <li>Vocabulary / Pronouciation Training</li>
-                                </ul>
-                            </div>
-                            <div class="pricing-btn">
-                                <a class="main-btn" href="#contact">coming soon...</a>
-                            </div>
-                        </div>
-                    </div> <!-- single pricing -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
-
-    <!--====== PRICING PART ENDS ======-->
-
-    <!--====== BLOG PART START ======-->
-
-    <section id="blog" class="blog-area pt-125 pb-130">
+    <--====== WORK PART ENDS ======-->
+<section id="blog" class="blog-area pt-125 pb-130">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
@@ -526,49 +416,104 @@
         </div> <!-- container -->
     </section>
 
-    <!--====== BLOG PART ENDS ======-->
+    <!--====== PRICING PART START ======-->
 
-    <!--====== CONTACT PART START ======-->
-
-    <section id="contact" class="contact-area pt-125 pb-130 gray-bg">
+    <section id="pricing" class="pricing-area gray-bg pt-125 pb-130">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-title text-center pb-25">
-                        <h2 class="title">Get In Touch</h2>
-                        <p>Complete the following form to send EnglishAcademics a message. We will respond to your question or comment as soon as possible. </p>
+                        <h2 class="title">Pricing Plans</h2>
+                        <p></p>
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="contact-form pt-30">
-                        <!--  <iframe name="ctt-form" style="display:none;"></iframe>  -->
-                        <form id="contact-form" method="GET" action="{{ action('HomeController@email') }}" target="ctt-form">
-                            @csrf
-                            <div class="single-form">
-                                <input type="text" name="name" placeholder="Name" required>
-                            </div> <!-- single form -->
-                            <div class="single-form">
-                                <input type="email" name="email" placeholder="Email" required>
-                            </div> <!-- single form -->
-                            <div class="single-form">
-                                <textarea name="message" placeholder="Message"></textarea>
-                            </div> <!-- single form -->
-                            <p class="form-message"></p>
-                            <div class="single-form">
-                                <button class="main-btn" type="submit">Send Message</button>
-                            </div> <!-- single form -->
-                        </form>
-                    </div> <!-- contact form -->
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-8 col-sm-9">
+                    <div class="single-pricing active text-center mt-30">
+                        <div class="pricing-package">
+                            <h4 class="package-title">Proficiency</h4>
+                        </div>
+                        <div class="pricing-body">
+                            <div class="pricing-text">
+                                <p>Get Access to IELTS and TOEFL Speaking Modules</p>
+                                <span class="price">Free</span>
+                            </div>
+                            <div class="pricing-list">
+                                <ul>
+                                    <li>TOEFL / IELTS Speaking Test</li>
+                                    <li style="color: red;">500+ Spoken Questions</li>
+                                    <!-- <li style="text-decoration: line-through;" >Listening Test</li>
+                                    <li style="text-decoration: line-through;">Vocabulary / Pronouciation Training</li> -->
+                                </ul>
+                            </div>
+                            <div class="pricing-btn">
+                                <a class="main-btn" href="/./register">let's go</a>
+                            </div>
+                        </div>
+                    </div> <!-- single pricing -->
                 </div>
-            </div> <!-- row -->
-            
-               
+                <div class="col-lg-4 col-md-8 col-sm-9">
+                    <div class="single-pricing  text-center mt-30">
+                        <div class="pricing-package">
+                            <h4 class="package-title">Business</h4>
+                        </div>
+                        <div class="pricing-body">
+                            <div class="pricing-text">
+                                <p>Choose The Specific Speaking Module That Fits Your Needs</p>
+                                <span class="price">$69 / year</span>
+                            </div>
+                            <div class="pricing-list">
+                                <ul>
+                                    <li style="color: red;">300+ Spoken Business Questions</li>
+                                    <li>Listening Business Tests</li>
+                                    <li>Vocabulary / Pronouciation Training</li>
+                                </ul>
+                            </div>
+                            <div class="pricing-btn">
+                                <a class="main-btn" href="#">coming soon...</a>
+                            </div>
+                        </div>
+                    </div> <!-- single pricing -->
+                </div>
+                <div class="col-lg-4 col-md-8 col-sm-9">
+                    <div class="single-pricing text-center mt-30">
+                        <div class="pricing-package">
+                            <h4 class="package-title">Premium</h4>
+                        </div>
+                        <div class="pricing-body">
+                            <div class="pricing-text">
+                                <p>Unlimited Access to All Speaking Tests Modules</p>
+                                <span class="price">$99 / year</span>
+                            </div>
+                            <div class="pricing-list">
+                                <ul>
+                                    <li>TOEFL / IELTS Speaking Test</li>
+                                    <li style="color: red;">1000+ Spoken Questions</li>
+                                    <li>Listening Business Tests</li>
+                                    <li>Vocabulary / Pronouciation Training</li>
+                                </ul>
+                            </div>
+                            <div class="pricing-btn">
+                                <a class="main-btn" href="#">coming soon...</a>
+                            </div>
+                        </div>
+                    </div> <!-- single pricing -->
+                </div>
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
 
+    <!--====== PRICING PART ENDS ======-->
+
+    <!--====== BLOG PART START ======-->
+
+    
+    <!--====== BLOG PART ENDS ======-->
+
+    <!--====== CONTACT PART START ======-->
+
+    
 
     <!--====== FOOTER PART START ======-->
 

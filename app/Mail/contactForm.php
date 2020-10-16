@@ -32,8 +32,13 @@ class contactForm extends Mailable
     public function build()
     {
         //$this->from($this->user->email);
-        $this->subject('Novo contato' );
+        //dd($request);
+
+        $this->subject('llalalalalalalal');
+        //$this->subject('Novo contato' );
         $this->to($this->user->email, $this->user->name);
-        return $this->view('mail.contactForm', ['user' => $this->user]);
+        
+        return $this->markdown('mail.contactForm', ['user' => $this->user]);
+        //return $this->view('mail.contactForm', ['user' => $this->user]);
     }
 }

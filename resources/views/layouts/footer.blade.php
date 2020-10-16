@@ -6,6 +6,6 @@
     <div class="float-right d-none d-sm-inline">
       <a href="/contact">Contact-us</a> 
     </div>
-    <!-- Default to the left -->
-    <strong>Be Proficient &copy; 2020 <a href="#">SOPA Systems</a>.</strong> All rights reserved.
+    <!-- Default to the left 
+    <strong>Be Proficient &copy; 2020 <a href="#">Memory Media</a>.</strong> All rights reserved.-->
   </footer>

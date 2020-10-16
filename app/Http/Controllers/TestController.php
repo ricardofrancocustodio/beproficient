@@ -262,12 +262,12 @@ class TestController extends Controller
     {
         //dd('oi');
 
-        $test1 = Test::find($id);
+        $test1 = Questionhasanswer::join('tests', 'questionhasanswers.id_test', 'tests.id_test')
+                ->where('questionhasanswers.id_test',$id);
         $test1->delete();
 
-        $test  = Test::join('questionhasanswers', 'tests.id_test', 'questionhasanswers.id_test')
-            ->findOrFail($id);
-     
+        $test  = Test::findOrFail($id);
+        $test->delete();
 
         return redirect('testlist')->with('flash_message', 'Test deleted!');
     }
